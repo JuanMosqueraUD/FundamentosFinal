@@ -36,10 +36,14 @@ public class Reg_vehicle extends javax.swing.JFrame {
         f_dia = new javax.swing.JTextField();
         f_mes = new javax.swing.JTextField();
         f_Año = new javax.swing.JTextField();
+        btn_fechaing = new javax.swing.JPanel();
+        l_btnfechaing = new javax.swing.JLabel();
         imgfeching = new javax.swing.JLabel();
         f_hora = new javax.swing.JTextField();
         f_min = new javax.swing.JTextField();
         f_seg = new javax.swing.JTextField();
+        btn_horaing = new javax.swing.JPanel();
+        l_btnhoraing = new javax.swing.JLabel();
         imghoraing = new javax.swing.JLabel();
         p_regis = new javax.swing.JPanel();
         l_regis = new javax.swing.JLabel();
@@ -59,7 +63,6 @@ public class Reg_vehicle extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(850, 500));
         setMinimumSize(new java.awt.Dimension(850, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(850, 500));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -128,6 +131,37 @@ public class Reg_vehicle extends javax.swing.JFrame {
         });
         jPanel1.add(f_Año, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 197, 60, 44));
 
+        btn_fechaing.setBackground(new java.awt.Color(255, 255, 255));
+        btn_fechaing.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        l_btnfechaing.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        l_btnfechaing.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_btnfechaing.setText("Fecha actual");
+        l_btnfechaing.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btn_fechaingLayout = new javax.swing.GroupLayout(btn_fechaing);
+        btn_fechaing.setLayout(btn_fechaingLayout);
+        btn_fechaingLayout.setHorizontalGroup(
+            btn_fechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+            .addGroup(btn_fechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_fechaingLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_btnfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        btn_fechaingLayout.setVerticalGroup(
+            btn_fechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 48, Short.MAX_VALUE)
+            .addGroup(btn_fechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_fechaingLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_btnfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(btn_fechaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 150, 50));
+
         imgfeching.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registro_fingreso.png"))); // NOI18N
         jPanel1.add(imgfeching, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
@@ -166,6 +200,37 @@ public class Reg_vehicle extends javax.swing.JFrame {
             }
         });
         jPanel1.add(f_seg, new org.netbeans.lib.awtextra.AbsoluteConstraints(514, 265, 42, 41));
+
+        btn_horaing.setBackground(new java.awt.Color(255, 255, 255));
+        btn_horaing.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        l_btnhoraing.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        l_btnhoraing.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_btnhoraing.setText("Hora Actual");
+        l_btnhoraing.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btn_horaingLayout = new javax.swing.GroupLayout(btn_horaing);
+        btn_horaing.setLayout(btn_horaingLayout);
+        btn_horaingLayout.setHorizontalGroup(
+            btn_horaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 148, Short.MAX_VALUE)
+            .addGroup(btn_horaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_horaingLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_btnhoraing, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        btn_horaingLayout.setVerticalGroup(
+            btn_horaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 48, Short.MAX_VALUE)
+            .addGroup(btn_horaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_horaingLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_btnhoraing, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(btn_horaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 150, 50));
 
         imghoraing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registro_hora.png"))); // NOI18N
         jPanel1.add(imghoraing, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
@@ -495,6 +560,8 @@ public class Reg_vehicle extends javax.swing.JFrame {
     private javax.swing.JPanel P_cuad;
     private javax.swing.JPanel P_exit;
     private javax.swing.JPanel P_superiorbar;
+    private javax.swing.JPanel btn_fechaing;
+    private javax.swing.JPanel btn_horaing;
     private javax.swing.JTextField f_Año;
     private javax.swing.JTextField f_dia;
     private javax.swing.JTextField f_hora;
@@ -509,6 +576,8 @@ public class Reg_vehicle extends javax.swing.JFrame {
     private javax.swing.JLabel imghoraing;
     private javax.swing.JLabel imgplaca;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel l_btnfechaing;
+    private javax.swing.JLabel l_btnhoraing;
     private javax.swing.JLabel l_cuad;
     private javax.swing.JLabel l_exit;
     private javax.swing.JLabel l_min;

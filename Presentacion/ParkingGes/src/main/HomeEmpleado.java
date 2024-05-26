@@ -58,7 +58,6 @@ public class HomeEmpleado extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(850, 500));
         setMinimumSize(new java.awt.Dimension(850, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(850, 500));
         setResizable(false);
 
         p_Background.setBackground(new java.awt.Color(255, 255, 255));

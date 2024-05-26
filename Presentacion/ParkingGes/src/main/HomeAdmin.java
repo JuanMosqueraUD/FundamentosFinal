@@ -57,7 +57,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(850, 500));
         setMinimumSize(new java.awt.Dimension(850, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(850, 500));
         setResizable(false);
 
         p_Background.setBackground(new java.awt.Color(255, 255, 255));
@@ -237,6 +236,9 @@ public class HomeAdmin extends javax.swing.JFrame {
         l_close.setMinimumSize(new java.awt.Dimension(240, 30));
         l_close.setPreferredSize(new java.awt.Dimension(240, 30));
         l_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                l_closeMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 l_closeMouseEntered(evt);
             }
@@ -255,10 +257,7 @@ public class HomeAdmin extends javax.swing.JFrame {
         );
         p_closeLayout.setVerticalGroup(
             p_closeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_closeLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(l_close, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+            .addComponent(l_close, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
         p_Background.add(p_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 200, 50));
@@ -450,6 +449,14 @@ public class HomeAdmin extends javax.swing.JFrame {
     private void l_closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_closeMouseExited
         p_close.setBackground(Color.WHITE);
     }//GEN-LAST:event_l_closeMouseExited
+
+    private void l_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_closeMouseClicked
+        Login newframe = new Login();
+        
+        newframe.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_l_closeMouseClicked
 
     /**
      * @param args the command line arguments
