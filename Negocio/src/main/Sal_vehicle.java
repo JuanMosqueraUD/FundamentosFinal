@@ -10,13 +10,13 @@ import java.awt.Color;
  *
  * @author User
  */
-public class Reg_vehicle extends javax.swing.JFrame {
+public class Sal_vehicle extends javax.swing.JFrame {
 
     int xMouse, yMouse;
     /**
-     * Creates new form Reg_vehicle
+     * Creates new form Sal_vehicle
      */
-    public Reg_vehicle() {
+    public Sal_vehicle() {
         initComponents();
     }
 
@@ -31,20 +31,16 @@ public class Reg_vehicle extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         f_placa = new javax.swing.JTextField();
-        imgplaca = new javax.swing.JLabel();
-        imgVehicletp = new javax.swing.JLabel();
-        f_dia = new javax.swing.JTextField();
-        f_mes = new javax.swing.JTextField();
-        f_Año = new javax.swing.JTextField();
-        imgfeching = new javax.swing.JLabel();
-        f_hora = new javax.swing.JTextField();
-        f_min = new javax.swing.JTextField();
-        f_seg = new javax.swing.JTextField();
-        imghoraing = new javax.swing.JLabel();
-        p_regis = new javax.swing.JPanel();
-        l_regis = new javax.swing.JLabel();
-        p_message = new javax.swing.JPanel();
-        imgbtnatras = new javax.swing.JLabel();
+        img_placa = new javax.swing.JLabel();
+        btn_fechaS = new javax.swing.JPanel();
+        l_btnfechaS = new javax.swing.JLabel();
+        img_fechaS = new javax.swing.JLabel();
+        btn_horaS = new javax.swing.JPanel();
+        l_btnhoraS = new javax.swing.JLabel();
+        img_horaS = new javax.swing.JLabel();
+        img_btnatras = new javax.swing.JLabel();
+        p_btngenrecibo = new javax.swing.JPanel();
+        l_btngenrecibo = new javax.swing.JLabel();
         P_superiorbar = new javax.swing.JPanel();
         P_exit = new javax.swing.JPanel();
         l_exit = new javax.swing.JLabel();
@@ -78,166 +74,128 @@ public class Reg_vehicle extends javax.swing.JFrame {
                 f_placaMousePressed(evt);
             }
         });
-        jPanel1.add(f_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 180, 30));
+        jPanel1.add(f_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 180, 30));
 
-        imgplaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/box_Placa.png"))); // NOI18N
-        jPanel1.add(imgplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        img_placa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/box_Placa.png"))); // NOI18N
+        jPanel1.add(img_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        imgVehicletp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Registro_tpv.png"))); // NOI18N
-        jPanel1.add(imgVehicletp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
+        btn_fechaS.setBackground(new java.awt.Color(255, 255, 255));
+        btn_fechaS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        f_dia.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_dia.setForeground(new java.awt.Color(204, 204, 204));
-        f_dia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_dia.setText("00");
-        f_dia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_dia.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                f_diaMousePressed(evt);
-            }
-        });
-        f_dia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_diaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 42, 41));
+        l_btnfechaS.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        l_btnfechaS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_btnfechaS.setText("Fecha actual");
+        l_btnfechaS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        f_mes.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_mes.setForeground(new java.awt.Color(204, 204, 204));
-        f_mes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_mes.setText("00");
-        f_mes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_mes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_mesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 198, 44, 42));
+        javax.swing.GroupLayout btn_fechaSLayout = new javax.swing.GroupLayout(btn_fechaS);
+        btn_fechaS.setLayout(btn_fechaSLayout);
+        btn_fechaSLayout.setHorizontalGroup(
+            btn_fechaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+            .addGroup(btn_fechaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_fechaSLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_btnfechaS, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        btn_fechaSLayout.setVerticalGroup(
+            btn_fechaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 48, Short.MAX_VALUE)
+            .addGroup(btn_fechaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_fechaSLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_btnfechaS, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
-        f_Año.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_Año.setForeground(new java.awt.Color(204, 204, 204));
-        f_Año.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_Año.setText("0000");
-        f_Año.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_Año.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_AñoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_Año, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 197, 60, 44));
+        jPanel1.add(btn_fechaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 150, 50));
 
-        imgfeching.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registro_fingreso.png"))); // NOI18N
-        jPanel1.add(imgfeching, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        img_fechaS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salida_fecha.png"))); // NOI18N
+        jPanel1.add(img_fechaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
 
-        f_hora.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_hora.setForeground(new java.awt.Color(204, 204, 204));
-        f_hora.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_hora.setText("00");
-        f_hora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_hora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_horaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 266, 42, 41));
+        btn_horaS.setBackground(new java.awt.Color(255, 255, 255));
+        btn_horaS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        f_min.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_min.setForeground(new java.awt.Color(204, 204, 204));
-        f_min.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_min.setText("00");
-        f_min.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_min.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_minActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_min, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 265, 42, 41));
+        l_btnhoraS.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        l_btnhoraS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_btnhoraS.setText("Hora Actual");
+        l_btnhoraS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        f_seg.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_seg.setForeground(new java.awt.Color(204, 204, 204));
-        f_seg.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_seg.setText("00");
-        f_seg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_seg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_segActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_seg, new org.netbeans.lib.awtextra.AbsoluteConstraints(514, 265, 42, 41));
+        javax.swing.GroupLayout btn_horaSLayout = new javax.swing.GroupLayout(btn_horaS);
+        btn_horaS.setLayout(btn_horaSLayout);
+        btn_horaSLayout.setHorizontalGroup(
+            btn_horaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 148, Short.MAX_VALUE)
+            .addGroup(btn_horaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_horaSLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_btnhoraS, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        btn_horaSLayout.setVerticalGroup(
+            btn_horaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 48, Short.MAX_VALUE)
+            .addGroup(btn_horaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_horaSLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_btnhoraS, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
-        imghoraing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registro_hora.png"))); // NOI18N
-        jPanel1.add(imghoraing, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        jPanel1.add(btn_horaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 150, 50));
 
-        p_regis.setBackground(new java.awt.Color(255, 255, 255));
-        p_regis.setPreferredSize(new java.awt.Dimension(180, 40));
+        img_horaS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salida_hora.png"))); // NOI18N
+        jPanel1.add(img_horaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
-        l_regis.setBackground(new java.awt.Color(255, 255, 255));
-        l_regis.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        l_regis.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        l_regis.setText("Registrar");
-        l_regis.setMaximumSize(new java.awt.Dimension(200, 40));
-        l_regis.setMinimumSize(new java.awt.Dimension(200, 40));
-        l_regis.setPreferredSize(new java.awt.Dimension(200, 40));
-        l_regis.addMouseListener(new java.awt.event.MouseAdapter() {
+        img_btnatras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/atrasyellow.png"))); // NOI18N
+        img_btnatras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        img_btnatras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                l_regisMouseClicked(evt);
+                img_btnatrasMouseClicked(evt);
+            }
+        });
+        jPanel1.add(img_btnatras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
+
+        p_btngenrecibo.setBackground(new java.awt.Color(255, 255, 255));
+        p_btngenrecibo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        l_btngenrecibo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        l_btngenrecibo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_btngenrecibo.setText("Generar recibo");
+        l_btngenrecibo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                l_btngenreciboMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                l_regisMouseEntered(evt);
+                l_btngenreciboMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                l_regisMouseExited(evt);
+                l_btngenreciboMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout p_regisLayout = new javax.swing.GroupLayout(p_regis);
-        p_regis.setLayout(p_regisLayout);
-        p_regisLayout.setHorizontalGroup(
-            p_regisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(p_regisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(p_regisLayout.createSequentialGroup()
+        javax.swing.GroupLayout p_btngenreciboLayout = new javax.swing.GroupLayout(p_btngenrecibo);
+        p_btngenrecibo.setLayout(p_btngenreciboLayout);
+        p_btngenreciboLayout.setHorizontalGroup(
+            p_btngenreciboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+            .addGroup(p_btngenreciboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(p_btngenreciboLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(l_btngenrecibo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        p_regisLayout.setVerticalGroup(
-            p_regisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-            .addGroup(p_regisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(p_regisLayout.createSequentialGroup()
+        p_btngenreciboLayout.setVerticalGroup(
+            p_btngenreciboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(p_btngenreciboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(p_btngenreciboLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_regis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(l_btngenrecibo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel1.add(p_regis, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, 180, 40));
-
-        p_message.setBackground(new java.awt.Color(255, 255, 255));
-        p_message.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout p_messageLayout = new javax.swing.GroupLayout(p_message);
-        p_message.setLayout(p_messageLayout);
-        p_messageLayout.setHorizontalGroup(
-            p_messageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        p_messageLayout.setVerticalGroup(
-            p_messageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(p_message, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 370, 100));
-
-        imgbtnatras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/atrasyellow.png"))); // NOI18N
-        imgbtnatras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        imgbtnatras.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imgbtnatrasMouseClicked(evt);
-            }
-        });
-        jPanel1.add(imgbtnatras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, -1));
+        jPanel1.add(p_btngenrecibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 200, 50));
 
         P_superiorbar.setBackground(new java.awt.Color(255, 255, 255));
         P_superiorbar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -350,7 +308,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
         jPanel1.add(P_superiorbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 30));
 
         img_right.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/RegistroRight.png"))); // NOI18N
-        jPanel1.add(img_right, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, -20, -1, -1));
+        jPanel1.add(img_right, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, -70, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -370,37 +328,28 @@ public class Reg_vehicle extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void f_diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_diaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_diaActionPerformed
+    private void img_btnatrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img_btnatrasMouseClicked
+        HomeEmpleado newframe = new HomeEmpleado();
+        
+        newframe.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_img_btnatrasMouseClicked
 
-    private void f_mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_mesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_mesActionPerformed
+    private void f_placaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f_placaMousePressed
+        if (f_placa.getText().equals("AAA000")){
+            f_placa.setText("");
+            f_placa.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_f_placaMousePressed
 
-    private void f_AñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_AñoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_AñoActionPerformed
+    private void l_btngenreciboMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_btngenreciboMouseEntered
+        p_btngenrecibo.setBackground(new Color(255, 222, 89));
+    }//GEN-LAST:event_l_btngenreciboMouseEntered
 
-    private void f_horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_horaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_horaActionPerformed
-
-    private void f_minActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_minActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_minActionPerformed
-
-    private void f_segActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_segActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_segActionPerformed
-
-    private void l_regisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_regisMouseEntered
-        p_regis.setBackground(new Color(255, 222, 89));
-    }//GEN-LAST:event_l_regisMouseEntered
-
-    private void l_regisMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_regisMouseExited
-        p_regis.setBackground(Color.WHITE);
-    }//GEN-LAST:event_l_regisMouseExited
+    private void l_btngenreciboMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_btngenreciboMouseExited
+        p_btngenrecibo.setBackground(Color.WHITE);
+    }//GEN-LAST:event_l_btngenreciboMouseExited
 
     private void l_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_exitMouseClicked
         System.exit(0);
@@ -425,35 +374,13 @@ public class Reg_vehicle extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_P_superiorbarMousePressed
 
-    private void f_placaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f_placaMousePressed
-        if (f_placa.getText().equals("AAA000")){
-        f_placa.setText("");
-        f_placa.setForeground(Color.black);
-       }
-    }//GEN-LAST:event_f_placaMousePressed
-
-    private void f_diaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f_diaMousePressed
-        if (f_dia.getText().equals("00")){
-        f_dia.setText("");
-        f_dia.setForeground(Color.black);
-       }
-    }//GEN-LAST:event_f_diaMousePressed
-
-    private void imgbtnatrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgbtnatrasMouseClicked
-        TipoVehiculo newframe = new TipoVehiculo();
+    private void l_btngenreciboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_btngenreciboMouseClicked
+        Recibo newframe = new Recibo();
         
         newframe.setVisible(true);
         
         this.dispose();
-    }//GEN-LAST:event_imgbtnatrasMouseClicked
-
-    private void l_regisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_regisMouseClicked
-        HomeEmpleado newframe = new HomeEmpleado();
-        
-        newframe.setVisible(true);
-        
-        this.dispose();
-    }//GEN-LAST:event_l_regisMouseClicked
+    }//GEN-LAST:event_l_btngenreciboMouseClicked
 
     /**
      * @param args the command line arguments
@@ -472,20 +399,20 @@ public class Reg_vehicle extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reg_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sal_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reg_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sal_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reg_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sal_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reg_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sal_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Reg_vehicle().setVisible(true);
+                new Sal_vehicle().setVisible(true);
             }
         });
     }
@@ -494,26 +421,22 @@ public class Reg_vehicle extends javax.swing.JFrame {
     private javax.swing.JPanel P_cuad;
     private javax.swing.JPanel P_exit;
     private javax.swing.JPanel P_superiorbar;
-    private javax.swing.JTextField f_Año;
-    private javax.swing.JTextField f_dia;
-    private javax.swing.JTextField f_hora;
-    private javax.swing.JTextField f_mes;
-    private javax.swing.JTextField f_min;
+    private javax.swing.JPanel btn_fechaS;
+    private javax.swing.JPanel btn_horaS;
     private javax.swing.JTextField f_placa;
-    private javax.swing.JTextField f_seg;
-    private javax.swing.JLabel imgVehicletp;
+    private javax.swing.JLabel img_btnatras;
+    private javax.swing.JLabel img_fechaS;
+    private javax.swing.JLabel img_horaS;
+    private javax.swing.JLabel img_placa;
     private javax.swing.JLabel img_right;
-    private javax.swing.JLabel imgbtnatras;
-    private javax.swing.JLabel imgfeching;
-    private javax.swing.JLabel imghoraing;
-    private javax.swing.JLabel imgplaca;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel l_btnfechaS;
+    private javax.swing.JLabel l_btngenrecibo;
+    private javax.swing.JLabel l_btnhoraS;
     private javax.swing.JLabel l_cuad;
     private javax.swing.JLabel l_exit;
     private javax.swing.JLabel l_min;
-    private javax.swing.JLabel l_regis;
-    private javax.swing.JPanel p_message;
+    private javax.swing.JPanel p_btngenrecibo;
     private javax.swing.JPanel p_min;
-    private javax.swing.JPanel p_regis;
     // End of variables declaration//GEN-END:variables
 }

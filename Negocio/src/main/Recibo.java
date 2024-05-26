@@ -10,13 +10,13 @@ import java.awt.Color;
  *
  * @author User
  */
-public class TipoVehiculo extends javax.swing.JFrame {
+public class Recibo extends javax.swing.JFrame {
 
     int xMouse, yMouse;
     /**
-     * Creates new form TipoVehiculo
+     * Creates new form Recibo
      */
-    public TipoVehiculo() {
+    public Recibo() {
         initComponents();
     }
 
@@ -30,11 +30,10 @@ public class TipoVehiculo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        l_btnatras = new javax.swing.JLabel();
-        l_tpvehicle = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        p_btcontinuar = new javax.swing.JPanel();
-        l_continuar = new javax.swing.JLabel();
+        p_btnimp = new javax.swing.JPanel();
+        l_imp = new javax.swing.JLabel();
+        img_format = new javax.swing.JLabel();
+        img_left = new javax.swing.JLabel();
         P_superiorbar = new javax.swing.JPanel();
         P_exit = new javax.swing.JPanel();
         l_exit = new javax.swing.JLabel();
@@ -42,8 +41,6 @@ public class TipoVehiculo extends javax.swing.JFrame {
         l_cuad = new javax.swing.JLabel();
         p_min = new javax.swing.JPanel();
         l_min = new javax.swing.JLabel();
-        l_imgright = new javax.swing.JLabel();
-        l_imgleft = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -58,70 +55,47 @@ public class TipoVehiculo extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(850, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        l_btnatras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnAtras.png"))); // NOI18N
-        l_btnatras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        l_btnatras.addMouseListener(new java.awt.event.MouseAdapter() {
+        p_btnimp.setBackground(new java.awt.Color(255, 255, 255));
+        p_btnimp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        l_imp.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        l_imp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_imp.setText("Imprimir recibo");
+        l_imp.setPreferredSize(new java.awt.Dimension(180, 40));
+        l_imp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                l_btnatrasMouseClicked(evt);
-            }
-        });
-        jPanel1.add(l_btnatras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
-
-        l_tpvehicle.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        l_tpvehicle.setText("Tipo de vehiculo:");
-        jPanel1.add(l_tpvehicle, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
-
-        jComboBox1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automovil", "Motocicleta", "Bicicleta", "Campero", "Camioneta", "Vehiculo Pesado" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 150, 30));
-
-        p_btcontinuar.setBackground(new java.awt.Color(255, 255, 255));
-        p_btcontinuar.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
-
-        l_continuar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        l_continuar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        l_continuar.setText("Continuar");
-        l_continuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        l_continuar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                l_continuarMouseClicked(evt);
+                l_impMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                l_continuarMouseEntered(evt);
+                l_impMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                l_continuarMouseExited(evt);
+                l_impMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout p_btcontinuarLayout = new javax.swing.GroupLayout(p_btcontinuar);
-        p_btcontinuar.setLayout(p_btcontinuarLayout);
-        p_btcontinuarLayout.setHorizontalGroup(
-            p_btcontinuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-            .addGroup(p_btcontinuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(p_btcontinuarLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_continuar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        javax.swing.GroupLayout p_btnimpLayout = new javax.swing.GroupLayout(p_btnimp);
+        p_btnimp.setLayout(p_btnimpLayout);
+        p_btnimpLayout.setHorizontalGroup(
+            p_btnimpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_btnimpLayout.createSequentialGroup()
+                .addComponent(l_imp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        p_btcontinuarLayout.setVerticalGroup(
-            p_btcontinuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-            .addGroup(p_btcontinuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(p_btcontinuarLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_continuar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        p_btnimpLayout.setVerticalGroup(
+            p_btnimpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_btnimpLayout.createSequentialGroup()
+                .addComponent(l_imp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1.add(p_btcontinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 200, 40));
+        jPanel1.add(p_btnimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, 180, 40));
+
+        img_format.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Recibo_parq.png"))); // NOI18N
+        jPanel1.add(img_format, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 30, -1, -1));
+
+        img_left.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/yellow_bar.png"))); // NOI18N
+        jPanel1.add(img_left, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 500));
 
         P_superiorbar.setBackground(new java.awt.Color(255, 255, 255));
         P_superiorbar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -233,31 +207,19 @@ public class TipoVehiculo extends javax.swing.JFrame {
 
         jPanel1.add(P_superiorbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 30));
 
-        l_imgright.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tpvehiculo_right.png"))); // NOI18N
-        jPanel1.add(l_imgright, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, -1, -1));
-
-        l_imgleft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tpvehiculo_left.png"))); // NOI18N
-        jPanel1.add(l_imgleft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 160, 530));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void l_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_exitMouseClicked
         System.exit(0);
@@ -282,29 +244,21 @@ public class TipoVehiculo extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_P_superiorbarMousePressed
 
-    private void l_continuarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_continuarMouseEntered
-        p_btcontinuar.setBackground(new Color(255, 222, 89));
-    }//GEN-LAST:event_l_continuarMouseEntered
+    private void l_impMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_impMouseEntered
+        p_btnimp.setBackground(new Color(255, 222, 89));
+    }//GEN-LAST:event_l_impMouseEntered
 
-    private void l_continuarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_continuarMouseExited
-        p_btcontinuar.setBackground(Color.WHITE);
-    }//GEN-LAST:event_l_continuarMouseExited
+    private void l_impMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_impMouseExited
+        p_btnimp.setBackground(Color.WHITE);
+    }//GEN-LAST:event_l_impMouseExited
 
-    private void l_btnatrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_btnatrasMouseClicked
+    private void l_impMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_impMouseClicked
         HomeEmpleado newframe = new HomeEmpleado();
         
         newframe.setVisible(true);
         
         this.dispose();
-    }//GEN-LAST:event_l_btnatrasMouseClicked
-
-    private void l_continuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_continuarMouseClicked
-        Reg_vehicle newframe = new Reg_vehicle();
-        
-        newframe.setVisible(true);
-        
-        this.dispose();
-    }//GEN-LAST:event_l_continuarMouseClicked
+    }//GEN-LAST:event_l_impMouseClicked
 
     /**
      * @param args the command line arguments
@@ -323,20 +277,20 @@ public class TipoVehiculo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TipoVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recibo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TipoVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recibo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TipoVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recibo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TipoVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recibo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TipoVehiculo().setVisible(true);
+                new Recibo().setVisible(true);
             }
         });
     }
@@ -345,17 +299,14 @@ public class TipoVehiculo extends javax.swing.JFrame {
     private javax.swing.JPanel P_cuad;
     private javax.swing.JPanel P_exit;
     private javax.swing.JPanel P_superiorbar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel img_format;
+    private javax.swing.JLabel img_left;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel l_btnatras;
-    private javax.swing.JLabel l_continuar;
     private javax.swing.JLabel l_cuad;
     private javax.swing.JLabel l_exit;
-    private javax.swing.JLabel l_imgleft;
-    private javax.swing.JLabel l_imgright;
+    private javax.swing.JLabel l_imp;
     private javax.swing.JLabel l_min;
-    private javax.swing.JLabel l_tpvehicle;
-    private javax.swing.JPanel p_btcontinuar;
+    private javax.swing.JPanel p_btnimp;
     private javax.swing.JPanel p_min;
     // End of variables declaration//GEN-END:variables
 }
