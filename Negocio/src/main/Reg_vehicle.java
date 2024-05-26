@@ -7,10 +7,13 @@ package main;
 import Negocio.Vehiculo;
 import Negocio.elquemanejaelparqueadero;
 import java.awt.Color;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import util.PYException;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -52,6 +55,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
         imgplaca = new javax.swing.JLabel();
         Tipo_Vehiculo = new javax.swing.JLabel();
         p_horayfechaing = new javax.swing.JPanel();
+        fecha_actual = new javax.swing.JLabel();
         btn_horayfechaing = new javax.swing.JPanel();
         l_horayfechaing = new javax.swing.JLabel();
         img_fechahoraing = new javax.swing.JLabel();
@@ -109,15 +113,24 @@ public class Reg_vehicle extends javax.swing.JFrame {
         p_horayfechaing.setBackground(new java.awt.Color(255, 255, 255));
         p_horayfechaing.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        fecha_actual.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        fecha_actual.setText("jLabel1");
+
         javax.swing.GroupLayout p_horayfechaingLayout = new javax.swing.GroupLayout(p_horayfechaing);
         p_horayfechaing.setLayout(p_horayfechaingLayout);
         p_horayfechaingLayout.setHorizontalGroup(
             p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
+            .addGroup(p_horayfechaingLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(fecha_actual, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         p_horayfechaingLayout.setVerticalGroup(
             p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
+            .addGroup(p_horayfechaingLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(fecha_actual, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel1.add(p_horayfechaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 350, 80));
@@ -129,6 +142,9 @@ public class Reg_vehicle extends javax.swing.JFrame {
         l_horayfechaing.setText("Fecha y Hora Actual");
         l_horayfechaing.setPreferredSize(new java.awt.Dimension(220, 40));
         l_horayfechaing.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                l_horayfechaingMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 l_horayfechaingMouseEntered(evt);
             }
@@ -442,6 +458,16 @@ public class Reg_vehicle extends javax.swing.JFrame {
         btn_horayfechaing.setBackground(Color.white);
     }//GEN-LAST:event_l_horayfechaingMouseExited
 
+    private void l_horayfechaingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseClicked
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
+
+        // Establecer la fecha y hora actual en el JLabel `fecha_actual`
+        fecha_actual.setText(formattedDateTime);
+    
+    }//GEN-LAST:event_l_horayfechaingMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -454,6 +480,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
     private javax.swing.JLabel Tipo_Vehiculo;
     private javax.swing.JPanel btn_horayfechaing;
     private javax.swing.JTextField f_placa;
+    private javax.swing.JLabel fecha_actual;
     private javax.swing.JLabel imgVehicletp;
     private javax.swing.JLabel img_fechahoraing;
     private javax.swing.JLabel img_right;
