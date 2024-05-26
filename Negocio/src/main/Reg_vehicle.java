@@ -19,7 +19,8 @@ public class Reg_vehicle extends javax.swing.JFrame {
 
     int xMouse, yMouse;
     private String vehicleType;
-    private elquemanejaelparqueadero elquemanejaelparqueadero;
+    private final elquemanejaelparqueadero manager = new elquemanejaelparqueadero();
+    
     
     /**
      * Creates new form Reg_vehicle
@@ -389,7 +390,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-         
+      
     private void f_diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_diaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_f_diaActionPerformed
