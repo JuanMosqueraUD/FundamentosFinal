@@ -3,7 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< sergio
             <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/main/HomeAdmin.java</file>
             <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/main/Login.java</file>
             <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/main/TipoVehiculo.java</file>
@@ -12,15 +11,9 @@
             <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/Negocio/Vehiculo.java</file>
             <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/util/ServiceLocator.java</file>
             <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/util/PYException.java</file>
-            <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/datos/VehiculoDAO.java</file>
+            <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/main/Recibo.java</file>
             <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/main/Sal_vehicle.java</file>
             <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/Negocio/Negocio.java</file>
-            <file>file:/C:/Users/Janus/Documents/GitHub/FundamentosFinal/Negocio/src/Negocio/elquemanejaelparqueadero.java</file>
-=======
-            <file>file:/C:/Users/CARLOS/Documents/Fundamentos/FundamentosFinal/Negocio/src/main/Reg_vehicle.java</file>
-            <file>file:/C:/Users/CARLOS/Documents/Fundamentos/FundamentosFinal/Negocio/src/main/Login.java</file>
-            <file>file:/C:/Users/CARLOS/Documents/Fundamentos/FundamentosFinal/Negocio/src/Negocio/Area.java</file>
->>>>>>> main
         </group>
     </open-files>
 </project-private>
