@@ -32,12 +32,10 @@ public class Sal_vehicle extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         f_placa = new javax.swing.JTextField();
         img_placa = new javax.swing.JLabel();
-        btn_fechaS = new javax.swing.JPanel();
-        l_btnfechaS = new javax.swing.JLabel();
-        img_fechaS = new javax.swing.JLabel();
-        btn_horaS = new javax.swing.JPanel();
-        l_btnhoraS = new javax.swing.JLabel();
-        img_horaS = new javax.swing.JLabel();
+        p_horayfechaing = new javax.swing.JPanel();
+        btn_horayfechaing = new javax.swing.JPanel();
+        l_horayfechaing = new javax.swing.JLabel();
+        img_fecahHorasal = new javax.swing.JLabel();
         img_btnatras = new javax.swing.JLabel();
         p_btngenrecibo = new javax.swing.JPanel();
         l_btngenrecibo = new javax.swing.JLabel();
@@ -79,73 +77,62 @@ public class Sal_vehicle extends javax.swing.JFrame {
         img_placa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/box_Placa.png"))); // NOI18N
         jPanel1.add(img_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        btn_fechaS.setBackground(new java.awt.Color(255, 255, 255));
-        btn_fechaS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        p_horayfechaing.setBackground(new java.awt.Color(255, 255, 255));
+        p_horayfechaing.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        l_btnfechaS.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        l_btnfechaS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        l_btnfechaS.setText("Fecha actual");
-        l_btnfechaS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout btn_fechaSLayout = new javax.swing.GroupLayout(btn_fechaS);
-        btn_fechaS.setLayout(btn_fechaSLayout);
-        btn_fechaSLayout.setHorizontalGroup(
-            btn_fechaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-            .addGroup(btn_fechaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btn_fechaSLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_btnfechaS, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        javax.swing.GroupLayout p_horayfechaingLayout = new javax.swing.GroupLayout(p_horayfechaing);
+        p_horayfechaing.setLayout(p_horayfechaingLayout);
+        p_horayfechaingLayout.setHorizontalGroup(
+            p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
         );
-        btn_fechaSLayout.setVerticalGroup(
-            btn_fechaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 48, Short.MAX_VALUE)
-            .addGroup(btn_fechaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btn_fechaSLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_btnfechaS, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        p_horayfechaingLayout.setVerticalGroup(
+            p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 78, Short.MAX_VALUE)
         );
 
-        jPanel1.add(btn_fechaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 150, 50));
+        jPanel1.add(p_horayfechaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 350, 80));
 
-        img_fechaS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salida_fecha.png"))); // NOI18N
-        jPanel1.add(img_fechaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
+        btn_horayfechaing.setBackground(new java.awt.Color(255, 255, 255));
+        btn_horayfechaing.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btn_horaS.setBackground(new java.awt.Color(255, 255, 255));
-        btn_horaS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        l_horayfechaing.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        l_horayfechaing.setText("Fecha y Hora Actual");
+        l_horayfechaing.setPreferredSize(new java.awt.Dimension(220, 40));
+        l_horayfechaing.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                l_horayfechaingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                l_horayfechaingMouseExited(evt);
+            }
+        });
 
-        l_btnhoraS.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        l_btnhoraS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        l_btnhoraS.setText("Hora Actual");
-        l_btnhoraS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout btn_horaSLayout = new javax.swing.GroupLayout(btn_horaS);
-        btn_horaS.setLayout(btn_horaSLayout);
-        btn_horaSLayout.setHorizontalGroup(
-            btn_horaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
-            .addGroup(btn_horaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btn_horaSLayout.createSequentialGroup()
+        javax.swing.GroupLayout btn_horayfechaingLayout = new javax.swing.GroupLayout(btn_horayfechaing);
+        btn_horayfechaing.setLayout(btn_horayfechaingLayout);
+        btn_horayfechaingLayout.setHorizontalGroup(
+            btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 220, Short.MAX_VALUE)
+            .addGroup(btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_horayfechaingLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_btnhoraS, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(l_horayfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        btn_horaSLayout.setVerticalGroup(
-            btn_horaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 48, Short.MAX_VALUE)
-            .addGroup(btn_horaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btn_horaSLayout.createSequentialGroup()
+        btn_horayfechaingLayout.setVerticalGroup(
+            btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_horayfechaingLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_btnhoraS, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(l_horayfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel1.add(btn_horaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 150, 50));
+        jPanel1.add(btn_horayfechaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 220, 40));
 
-        img_horaS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salida_hora.png"))); // NOI18N
-        jPanel1.add(img_horaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        img_fecahHorasal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fechayhorasal.png"))); // NOI18N
+        jPanel1.add(img_fecahHorasal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         img_btnatras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/atrasyellow.png"))); // NOI18N
         img_btnatras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -382,6 +369,14 @@ public class Sal_vehicle extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_l_btngenreciboMouseClicked
 
+    private void l_horayfechaingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseEntered
+        btn_horayfechaing.setBackground(new Color(255, 222, 89));
+    }//GEN-LAST:event_l_horayfechaingMouseEntered
+
+    private void l_horayfechaingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseExited
+        btn_horayfechaing.setBackground(Color.white);
+    }//GEN-LAST:event_l_horayfechaingMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -421,22 +416,20 @@ public class Sal_vehicle extends javax.swing.JFrame {
     private javax.swing.JPanel P_cuad;
     private javax.swing.JPanel P_exit;
     private javax.swing.JPanel P_superiorbar;
-    private javax.swing.JPanel btn_fechaS;
-    private javax.swing.JPanel btn_horaS;
+    private javax.swing.JPanel btn_horayfechaing;
     private javax.swing.JTextField f_placa;
     private javax.swing.JLabel img_btnatras;
-    private javax.swing.JLabel img_fechaS;
-    private javax.swing.JLabel img_horaS;
+    private javax.swing.JLabel img_fecahHorasal;
     private javax.swing.JLabel img_placa;
     private javax.swing.JLabel img_right;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel l_btnfechaS;
     private javax.swing.JLabel l_btngenrecibo;
-    private javax.swing.JLabel l_btnhoraS;
     private javax.swing.JLabel l_cuad;
     private javax.swing.JLabel l_exit;
+    private javax.swing.JLabel l_horayfechaing;
     private javax.swing.JLabel l_min;
     private javax.swing.JPanel p_btngenrecibo;
+    private javax.swing.JPanel p_horayfechaing;
     private javax.swing.JPanel p_min;
     // End of variables declaration//GEN-END:variables
 }
