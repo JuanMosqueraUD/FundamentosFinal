@@ -50,7 +50,6 @@ public class TipoVehiculo extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(850, 500));
         setMinimumSize(new java.awt.Dimension(850, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(850, 500));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
