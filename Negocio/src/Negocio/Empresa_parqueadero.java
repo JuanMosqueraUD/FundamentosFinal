@@ -12,5 +12,10 @@ import Negocio.Parqueadero;
  */
 public class Empresa_parqueadero {
     
+    public Parqueadero parqueadero;
+   public Empresa_parqueadero(){
+       
+       
+   }
    
 }

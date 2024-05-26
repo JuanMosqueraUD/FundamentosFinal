@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Negocio;
-
+import Negocio.Plaza;
 /**
  *
  * @author CARLOS
  */
 public class Area {
-    
+    public Plaza plaza;
+   
     private String id;
     private String descripción;
     
