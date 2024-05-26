@@ -46,7 +46,7 @@ public class VehiculoDAO {
       
     }
     
-    public void modificarEmpleado(){
+    public void (){
       //implementar
     }
     
