@@ -20,9 +20,9 @@ public class elquemanejaelparqueadero {
     
   
     public void incluirVehiculo(String placa, String tipo) throws PYException {
-        Vehiculo vehiculo = new Vehiculo();
-        vehiculo.setPlaca(placa);
-        vehiculo.setTipo(tipo);
-        VehiculoDAO.incluirVehiculo(vehiculo);
+        Vehiculo Vehiculo = new Vehiculo();
+        Vehiculo.setPlaca(placa);
+        Vehiculo.setTipo(tipo);
+        VehiculoDAO.incluirVehiculo(Vehiculo);
     }
 }
