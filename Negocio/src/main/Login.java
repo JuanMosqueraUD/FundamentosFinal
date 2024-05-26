@@ -340,11 +340,21 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_f_passwordMousePressed
 
     private void lb_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_ingresarMouseClicked
-        HomeEmpleado newframe = new HomeEmpleado();
-        
-        newframe.setVisible(true);
-        
-        this.dispose();
+        if (f_userid.getText().equals("Admin")){
+            if(String.valueOf(f_password.getPassword()).equals("1234")){
+                HomeAdmin newframe = new HomeAdmin();
+
+                newframe.setVisible(true);
+
+                this.dispose();
+            }
+        }else{
+            HomeEmpleado newframe = new HomeEmpleado();
+
+            newframe.setVisible(true);
+
+            this.dispose();
+        }
     }//GEN-LAST:event_lb_ingresarMouseClicked
 
     /**
