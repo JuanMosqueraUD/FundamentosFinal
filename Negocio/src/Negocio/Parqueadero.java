@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Negocio;
-
+import Negocio.Area;
 /**
  *
  * @author CARLOS
  */
 public class Parqueadero {
-    
+    public  Area area ;
+     
     private String nombre;
     private String direccion;
     private String localidad;
@@ -18,6 +19,7 @@ public class Parqueadero {
    
     
      public Parqueadero(){
+        
         
      }   
 
