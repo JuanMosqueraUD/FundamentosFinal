@@ -13,11 +13,18 @@ import java.awt.Color;
 public class TipoVehiculo extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    private String selectedVehicleType;
+
+    public String getSelectedVehicleType() {
+        return selectedVehicleType;
+    }
+    
     /**
      * Creates new form TipoVehiculo
      */
     public TipoVehiculo() {
         initComponents();
+        selectedVehicleType = (String) jComboBox1.getSelectedItem(); 
     }
 
     /**
@@ -256,7 +263,7 @@ public class TipoVehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        selectedVehicleType = (String) jComboBox1.getSelectedItem();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void l_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_exitMouseClicked
@@ -299,7 +306,7 @@ public class TipoVehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_l_btnatrasMouseClicked
 
     private void l_continuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_continuarMouseClicked
-        Reg_vehicle newframe = new Reg_vehicle();
+        Reg_vehicle newframe = new Reg_vehicle(selectedVehicleType);
         
         newframe.setVisible(true);
         

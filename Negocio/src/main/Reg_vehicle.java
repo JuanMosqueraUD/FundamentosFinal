@@ -4,7 +4,13 @@
  */
 package main;
 
+import Negocio.Vehiculo;
+import Negocio.elquemanejaelparqueadero;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import util.PYException;
 
 /**
  *
@@ -13,13 +19,25 @@ import java.awt.Color;
 public class Reg_vehicle extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    private String vehicleType;
+    private  elquemanejaelparqueadero manager;
+    
+    
     /**
      * Creates new form Reg_vehicle
      */
-    public Reg_vehicle() {
+    public Reg_vehicle(String vehicleType) {
+        this.manager = manager;
+        this.vehicleType = vehicleType;
+       
         initComponents();
+        Tipo_Vehiculo.setText(vehicleType);
+        manager = new elquemanejaelparqueadero();
     }
-
+     public elquemanejaelparqueadero getManager() {
+        return manager;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,9 +50,10 @@ public class Reg_vehicle extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         f_placa = new javax.swing.JTextField();
         imgplaca = new javax.swing.JLabel();
-        imgVehicletp = new javax.swing.JLabel();
         f_dia = new javax.swing.JTextField();
         f_mes = new javax.swing.JTextField();
+        Tipo_Vehiculo = new javax.swing.JLabel();
+        imgVehicletp = new javax.swing.JLabel();
         f_Año = new javax.swing.JTextField();
         imgfeching = new javax.swing.JLabel();
         f_hora = new javax.swing.JTextField();
@@ -56,7 +75,6 @@ public class Reg_vehicle extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setMaximumSize(new java.awt.Dimension(850, 500));
         setMinimumSize(new java.awt.Dimension(850, 500));
         setUndecorated(true);
         setResizable(false);
@@ -78,13 +96,15 @@ public class Reg_vehicle extends javax.swing.JFrame {
                 f_placaMousePressed(evt);
             }
         });
-        jPanel1.add(f_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 180, 30));
+        f_placa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f_placaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(f_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 180, 30));
 
         imgplaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/box_Placa.png"))); // NOI18N
         jPanel1.add(imgplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        imgVehicletp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Registro_tpv.png"))); // NOI18N
-        jPanel1.add(imgVehicletp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
         f_dia.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         f_dia.setForeground(new java.awt.Color(204, 204, 204));
@@ -114,6 +134,13 @@ public class Reg_vehicle extends javax.swing.JFrame {
             }
         });
         jPanel1.add(f_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 198, 44, 42));
+
+        Tipo_Vehiculo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        Tipo_Vehiculo.setText("jLabel1");
+        jPanel1.add(Tipo_Vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 180, 90));
+
+        imgVehicletp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Registro_tpv.png"))); // NOI18N
+        jPanel1.add(imgVehicletp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         f_Año.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         f_Año.setForeground(new java.awt.Color(204, 204, 204));
@@ -369,7 +396,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+      
     private void f_diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_diaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_f_diaActionPerformed
@@ -449,51 +476,35 @@ public class Reg_vehicle extends javax.swing.JFrame {
 
     private void l_regisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_regisMouseClicked
         HomeEmpleado newframe = new HomeEmpleado();
+        try {
+        	  
+              
+               manager.incluirVehiculo(f_placa.getText(), Tipo_Vehiculo.getText());
+              JOptionPane.showMessageDialog(null,  "Registro Incluido Exitosamente", null, JOptionPane.INFORMATION_MESSAGE);
+          } catch (PYException f) {
+              JOptionPane.showMessageDialog(null, f, "Error", JOptionPane.ERROR_MESSAGE);
+              
+          }
         
         newframe.setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_l_regisMouseClicked
 
+    private void f_placaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_placaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_f_placaActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reg_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reg_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reg_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reg_vehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Reg_vehicle().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel P_cuad;
     private javax.swing.JPanel P_exit;
     private javax.swing.JPanel P_superiorbar;
+    private javax.swing.JLabel Tipo_Vehiculo;
     private javax.swing.JTextField f_Año;
     private javax.swing.JTextField f_dia;
     private javax.swing.JTextField f_hora;
