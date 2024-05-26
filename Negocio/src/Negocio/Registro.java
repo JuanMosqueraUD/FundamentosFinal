@@ -56,5 +56,10 @@ public class Registro {
         this.tipo_servicio = tipo_servicio;
     }
     
+ 
     
+    
+   
 }
+
+

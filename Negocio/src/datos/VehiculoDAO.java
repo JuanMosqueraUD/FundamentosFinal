@@ -5,6 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+ import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.CallableStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 import Negocio.Vehiculo;
@@ -46,8 +53,43 @@ public class VehiculoDAO {
       
     }
     
-    public void (){
-      //implementar
+     public static void registrarSalidaVehiculo(String placa, LocalDateTime fechaSalida) {
+        Connection conexion = null;
+        CallableStatement stmt = null;
+
+        try {
+            // Establecer la conexión con la base de datos
+            conexion = ServiceLocator.getInstance().tomarConexion();
+
+            // Llamar a la función almacenada
+            String sql = "{ call registrar_salida_vehiculo(?, ?) }";
+            stmt = conexion.prepareCall(sql);
+            stmt.setString(1, placa);
+            stmt.setTimestamp(2, Timestamp.valueOf(fechaSalida));
+
+            // Ejecutar la llamada
+            stmt.execute();
+
+            System.out.println("Salida registrada para el vehículo con placa: " + placa);
+        } catch (SQLException se) {
+            // Manejo de errores JDBC
+            se.printStackTrace();
+        } catch (Exception e) {
+            // Manejo de errores de Class.forName
+            e.printStackTrace();
+        } finally {
+            // Bloque finally para cerrar recursos
+            try {
+                if (stmt != null) stmt.close();
+            } 
+            catch (SQLException se2) {
+            } // No hace nada
+            try {
+                if (conexion != null) conexion.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
     }
     
     public void eliminarEmpleado(){
