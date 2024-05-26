@@ -50,16 +50,12 @@ public class Reg_vehicle extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         f_placa = new javax.swing.JTextField();
         imgplaca = new javax.swing.JLabel();
-        f_dia = new javax.swing.JTextField();
-        f_mes = new javax.swing.JTextField();
         Tipo_Vehiculo = new javax.swing.JLabel();
+        p_horayfechaing = new javax.swing.JPanel();
+        btn_horayfechaing = new javax.swing.JPanel();
+        l_horayfechaing = new javax.swing.JLabel();
+        img_fechahoraing = new javax.swing.JLabel();
         imgVehicletp = new javax.swing.JLabel();
-        f_Año = new javax.swing.JTextField();
-        imgfeching = new javax.swing.JLabel();
-        f_hora = new javax.swing.JTextField();
-        f_min = new javax.swing.JTextField();
-        f_seg = new javax.swing.JTextField();
-        imghoraing = new javax.swing.JLabel();
         p_regis = new javax.swing.JPanel();
         l_regis = new javax.swing.JLabel();
         p_message = new javax.swing.JPanel();
@@ -106,95 +102,69 @@ public class Reg_vehicle extends javax.swing.JFrame {
         imgplaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/box_Placa.png"))); // NOI18N
         jPanel1.add(imgplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        f_dia.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_dia.setForeground(new java.awt.Color(204, 204, 204));
-        f_dia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_dia.setText("00");
-        f_dia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_dia.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                f_diaMousePressed(evt);
-            }
-        });
-        f_dia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_diaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 42, 41));
-
-        f_mes.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_mes.setForeground(new java.awt.Color(204, 204, 204));
-        f_mes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_mes.setText("00");
-        f_mes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_mes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_mesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 198, 44, 42));
-
         Tipo_Vehiculo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Tipo_Vehiculo.setText("jLabel1");
-        jPanel1.add(Tipo_Vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 180, 90));
+        jPanel1.add(Tipo_Vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 180, 90));
+
+        p_horayfechaing.setBackground(new java.awt.Color(255, 255, 255));
+        p_horayfechaing.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout p_horayfechaingLayout = new javax.swing.GroupLayout(p_horayfechaing);
+        p_horayfechaing.setLayout(p_horayfechaingLayout);
+        p_horayfechaingLayout.setHorizontalGroup(
+            p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        p_horayfechaingLayout.setVerticalGroup(
+            p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 78, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(p_horayfechaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 350, 80));
+
+        btn_horayfechaing.setBackground(new java.awt.Color(255, 255, 255));
+        btn_horayfechaing.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        l_horayfechaing.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        l_horayfechaing.setText("Fecha y Hora Actual");
+        l_horayfechaing.setPreferredSize(new java.awt.Dimension(220, 40));
+        l_horayfechaing.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                l_horayfechaingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                l_horayfechaingMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_horayfechaingLayout = new javax.swing.GroupLayout(btn_horayfechaing);
+        btn_horayfechaing.setLayout(btn_horayfechaingLayout);
+        btn_horayfechaingLayout.setHorizontalGroup(
+            btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 220, Short.MAX_VALUE)
+            .addGroup(btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_horayfechaingLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_horayfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        btn_horayfechaingLayout.setVerticalGroup(
+            btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btn_horayfechaingLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(l_horayfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(btn_horayfechaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 220, 40));
+
+        img_fechahoraing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fehcayhoraing.png"))); // NOI18N
+        jPanel1.add(img_fechahoraing, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         imgVehicletp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Registro_tpv.png"))); // NOI18N
-        jPanel1.add(imgVehicletp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-
-        f_Año.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_Año.setForeground(new java.awt.Color(204, 204, 204));
-        f_Año.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_Año.setText("0000");
-        f_Año.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_Año.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_AñoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_Año, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 197, 60, 44));
-
-        imgfeching.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registro_fingreso.png"))); // NOI18N
-        jPanel1.add(imgfeching, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
-
-        f_hora.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_hora.setForeground(new java.awt.Color(204, 204, 204));
-        f_hora.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_hora.setText("00");
-        f_hora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_hora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_horaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 266, 42, 41));
-
-        f_min.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_min.setForeground(new java.awt.Color(204, 204, 204));
-        f_min.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_min.setText("00");
-        f_min.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_min.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_minActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_min, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 265, 42, 41));
-
-        f_seg.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        f_seg.setForeground(new java.awt.Color(204, 204, 204));
-        f_seg.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        f_seg.setText("00");
-        f_seg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        f_seg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_segActionPerformed(evt);
-            }
-        });
-        jPanel1.add(f_seg, new org.netbeans.lib.awtextra.AbsoluteConstraints(514, 265, 42, 41));
-
-        imghoraing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registro_hora.png"))); // NOI18N
-        jPanel1.add(imghoraing, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        jPanel1.add(imgVehicletp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         p_regis.setBackground(new java.awt.Color(255, 255, 255));
         p_regis.setPreferredSize(new java.awt.Dimension(180, 40));
@@ -255,7 +225,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(p_message, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 370, 100));
+        jPanel1.add(p_message, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 370, 100));
 
         imgbtnatras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/atrasyellow.png"))); // NOI18N
         imgbtnatras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -397,30 +367,6 @@ public class Reg_vehicle extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
       
-    private void f_diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_diaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_diaActionPerformed
-
-    private void f_mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_mesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_mesActionPerformed
-
-    private void f_AñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_AñoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_AñoActionPerformed
-
-    private void f_horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_horaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_horaActionPerformed
-
-    private void f_minActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_minActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_minActionPerformed
-
-    private void f_segActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_segActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_segActionPerformed
-
     private void l_regisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_regisMouseEntered
         p_regis.setBackground(new Color(255, 222, 89));
     }//GEN-LAST:event_l_regisMouseEntered
@@ -459,13 +405,6 @@ public class Reg_vehicle extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_f_placaMousePressed
 
-    private void f_diaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f_diaMousePressed
-        if (f_dia.getText().equals("00")){
-        f_dia.setText("");
-        f_dia.setForeground(Color.black);
-       }
-    }//GEN-LAST:event_f_diaMousePressed
-
     private void imgbtnatrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgbtnatrasMouseClicked
         TipoVehiculo newframe = new TipoVehiculo();
         
@@ -495,6 +434,14 @@ public class Reg_vehicle extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_f_placaActionPerformed
 
+    private void l_horayfechaingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseEntered
+        btn_horayfechaing.setBackground(new Color(255, 222, 89));
+    }//GEN-LAST:event_l_horayfechaingMouseEntered
+
+    private void l_horayfechaingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseExited
+        btn_horayfechaing.setBackground(Color.white);
+    }//GEN-LAST:event_l_horayfechaingMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -505,24 +452,20 @@ public class Reg_vehicle extends javax.swing.JFrame {
     private javax.swing.JPanel P_exit;
     private javax.swing.JPanel P_superiorbar;
     private javax.swing.JLabel Tipo_Vehiculo;
-    private javax.swing.JTextField f_Año;
-    private javax.swing.JTextField f_dia;
-    private javax.swing.JTextField f_hora;
-    private javax.swing.JTextField f_mes;
-    private javax.swing.JTextField f_min;
+    private javax.swing.JPanel btn_horayfechaing;
     private javax.swing.JTextField f_placa;
-    private javax.swing.JTextField f_seg;
     private javax.swing.JLabel imgVehicletp;
+    private javax.swing.JLabel img_fechahoraing;
     private javax.swing.JLabel img_right;
     private javax.swing.JLabel imgbtnatras;
-    private javax.swing.JLabel imgfeching;
-    private javax.swing.JLabel imghoraing;
     private javax.swing.JLabel imgplaca;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel l_cuad;
     private javax.swing.JLabel l_exit;
+    private javax.swing.JLabel l_horayfechaing;
     private javax.swing.JLabel l_min;
     private javax.swing.JLabel l_regis;
+    private javax.swing.JPanel p_horayfechaing;
     private javax.swing.JPanel p_message;
     private javax.swing.JPanel p_min;
     private javax.swing.JPanel p_regis;

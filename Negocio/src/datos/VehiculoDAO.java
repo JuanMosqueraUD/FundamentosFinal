@@ -46,10 +46,6 @@ public class VehiculoDAO {
       
     }
     
-    public void modificarEmpleado(){
-      //implementar
-    }
-    
     public void eliminarEmpleado(){
       //implementar
     }
