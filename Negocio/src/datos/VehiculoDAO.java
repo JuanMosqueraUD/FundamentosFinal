@@ -1,5 +1,6 @@
  package datos;
 
+import Negocio.Parqueadero;
 import Negocio.Plaza;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -191,6 +192,28 @@ public class VehiculoDAO {
       }
 
     }
+        public void updateRegiP(Parqueadero Parqueadero, OffsetDateTime fechaHora) throws PYException{
+        try {
+        String strSQL = "UPDATE registro set k_direccion = ?, k_nombre= ? where f_ingreso = ?";
+        Connection conexion = ServiceLocator.getInstance().tomarConexion();
+        PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+        prepStmt.setString(1, Parqueadero.getDireccion()); 
+        prepStmt.setString(2, Parqueadero.getNombre()); 
+        prepStmt.setObject(3, fechaHora); 
+        prepStmt.executeUpdate();
+        prepStmt.close();
+        ServiceLocator.getInstance().commit();
+
+
+      } catch (SQLException e) {
+           ServiceLocator.getInstance().rollback();
+           throw new PYException( "EmpleadoDAO", "No pudo crear el empleado"+ e.getMessage());
+      }  finally {
+         ServiceLocator.getInstance().liberarConexion();
+      }
+
+    }
+
 }
 
 

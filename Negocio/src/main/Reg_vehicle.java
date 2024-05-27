@@ -4,8 +4,10 @@
  */
 package main;
 
+import Negocio.Parqueadero;
 import Negocio.Vehiculo;
 import Negocio.elquemanejaelparqueadero;
+import datos.VehiculoDAO;
 import java.awt.Color;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -29,6 +31,8 @@ public class Reg_vehicle extends javax.swing.JFrame {
     int xMouse, yMouse;
     private String vehicleType;
     private  elquemanejaelparqueadero manager;
+    private VehiculoDAO DAO;
+    private Parqueadero Parqueadero;
     
     
     /**
@@ -446,11 +450,14 @@ public class Reg_vehicle extends javax.swing.JFrame {
 
     private void l_regisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_regisMouseClicked
         HomeEmpleado newframe = new HomeEmpleado();
-       try {
-
-
+        
+        try {
               manager.incluirVehiculo(f_placa.getText(), Tipo_Vehiculo.getText(),areaField.getText());
               JOptionPane.showMessageDialog(null,  "Registro Incluido Exitosamente", null, JOptionPane.INFORMATION_MESSAGE);
+              if(areaField.getText()=="ba1" ||areaField.getText()=="ba2" ){
+                 Parqueadero Paqueadero = new Paqueadero();
+                 DAO.updateRegiP(Parqueadero, now);
+              }
           } catch (PYException f) {
               JOptionPane.showMessageDialog(null, f, "Error", JOptionPane.ERROR_MESSAGE);
 

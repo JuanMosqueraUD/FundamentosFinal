@@ -58,6 +58,7 @@ public class elquemanejaelparqueadero {
     public void insertarFechaHoraEnBD(OffsetDateTime fechaHora) throws PYException{
         Registro Registro = new Registro();
         Registro.setFecha_ingreso(fechaHora);
+        
         VehiculoDAO.insertarFechaHoraEnBD(fechaHora);
     }
     
