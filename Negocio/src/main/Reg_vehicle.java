@@ -4,6 +4,7 @@
  */
 package main;
 
+import Negocio.Parqueadero;
 import Negocio.Vehiculo;
 import Negocio.elquemanejaelparqueadero;
 import java.awt.Color;
@@ -29,6 +30,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
     int xMouse, yMouse;
     private String vehicleType;
     private  elquemanejaelparqueadero manager;
+    private Parqueadero Parqueadero;
     
     
     /**
@@ -41,6 +43,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
         initComponents();
         Tipo_Vehiculo.setText(vehicleType);
         manager = new elquemanejaelparqueadero();
+        Parqueadero = new Parqueadero();
     }
      public elquemanejaelparqueadero getManager() {
         return manager;
@@ -446,15 +449,52 @@ public class Reg_vehicle extends javax.swing.JFrame {
 
     private void l_regisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_regisMouseClicked
         HomeEmpleado newframe = new HomeEmpleado();
+        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSXXX");
+        String formattedDateTime = now.format(formatter);
+        fecha_actual.setText(formattedDateTime);
        try {
 
 
               manager.incluirVehiculo(f_placa.getText(), Tipo_Vehiculo.getText(),areaField.getText());
               JOptionPane.showMessageDialog(null,  "Registro Incluido Exitosamente", null, JOptionPane.INFORMATION_MESSAGE);
+           if (areaField.getText().equals("ba") || areaField.getText().equals("bb")){
+           String direccion ="cra2b-09";
+           String nombre = "bosa";
+           try {
+            manager.insertarFechaHoraEnBD(now, direccion, nombre);
+        } catch (PYException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+       }else if (areaField.getText().equals("fa") || areaField.getText().equals("fb")){
+           String direccion ="cra89b-16b";
+           String nombre = "fontibon";
+           try {
+            manager.insertarFechaHoraEnBD(now, direccion, nombre);
+        } catch (PYException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+       }else if (areaField.getText().equals("sa") || areaField.getText().equals("sb")){
+            String direccion ="cra21b-02c";
+            String nombre= "suba";
+           
+           try {
+            manager.insertarFechaHoraEnBD(now, direccion, nombre);
+        } catch (PYException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+       }
           } catch (PYException f) {
               JOptionPane.showMessageDialog(null, f, "Error", JOptionPane.ERROR_MESSAGE);
 
           }
+       
+        
+        
+       
+      
+       
+       
 
         newframe.setVisible(true);
 
@@ -474,15 +514,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
     }//GEN-LAST:event_l_horayfechaingMouseExited
 
     private void l_horayfechaingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseClicked
-        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSXXX");
-        String formattedDateTime = now.format(formatter);
-        fecha_actual.setText(formattedDateTime);
-        try {
-            manager.insertarFechaHoraEnBD(now);
-        } catch (PYException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        
         
     }//GEN-LAST:event_l_horayfechaingMouseClicked
 
