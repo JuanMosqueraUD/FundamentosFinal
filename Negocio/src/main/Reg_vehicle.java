@@ -7,18 +7,10 @@ package main;
 import Negocio.Vehiculo;
 import Negocio.elquemanejaelparqueadero;
 import java.awt.Color;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import util.PYException;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import static java.time.OffsetDateTime.now;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-
 
 /**
  *
@@ -60,7 +52,6 @@ public class Reg_vehicle extends javax.swing.JFrame {
         imgplaca = new javax.swing.JLabel();
         Tipo_Vehiculo = new javax.swing.JLabel();
         p_horayfechaing = new javax.swing.JPanel();
-        fecha_actual = new javax.swing.JLabel();
         btn_horayfechaing = new javax.swing.JPanel();
         l_horayfechaing = new javax.swing.JLabel();
         img_fechahoraing = new javax.swing.JLabel();
@@ -119,24 +110,15 @@ public class Reg_vehicle extends javax.swing.JFrame {
         p_horayfechaing.setBackground(new java.awt.Color(255, 255, 255));
         p_horayfechaing.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        fecha_actual.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        fecha_actual.setText("jLabel1");
-
         javax.swing.GroupLayout p_horayfechaingLayout = new javax.swing.GroupLayout(p_horayfechaing);
         p_horayfechaing.setLayout(p_horayfechaingLayout);
         p_horayfechaingLayout.setHorizontalGroup(
             p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_horayfechaingLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(fecha_actual, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+            .addGap(0, 348, Short.MAX_VALUE)
         );
         p_horayfechaingLayout.setVerticalGroup(
             p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_horayfechaingLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(fecha_actual, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+            .addGap(0, 78, Short.MAX_VALUE)
         );
 
         jPanel1.add(p_horayfechaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 350, 80));
@@ -448,8 +430,6 @@ public class Reg_vehicle extends javax.swing.JFrame {
               
           }
         
-        
-        
         newframe.setVisible(true);
         
         this.dispose();
@@ -470,18 +450,6 @@ public class Reg_vehicle extends javax.swing.JFrame {
     }//GEN-LAST:event_l_horayfechaingMouseExited
 
     private void l_horayfechaingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseClicked
-<<<<<<< Pallo
-=======
-        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSXXX");
-        String formattedDateTime = now.format(formatter);
-        fecha_actual.setText(formattedDateTime);
-        try {
-            manager.insertarFechaHoraEnBD(now);
-        } catch (PYException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
->>>>>>> main
         
     }//GEN-LAST:event_l_horayfechaingMouseClicked
 
@@ -498,7 +466,6 @@ public class Reg_vehicle extends javax.swing.JFrame {
     private javax.swing.JTextField areaField;
     private javax.swing.JPanel btn_horayfechaing;
     private javax.swing.JTextField f_placa;
-    private javax.swing.JLabel fecha_actual;
     private javax.swing.JLabel imgVehicletp;
     private javax.swing.JLabel img_fechahoraing;
     private javax.swing.JLabel img_right;

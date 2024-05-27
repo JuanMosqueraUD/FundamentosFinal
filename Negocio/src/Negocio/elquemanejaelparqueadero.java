@@ -4,14 +4,10 @@
  */
 package Negocio;
 import datos.VehiculoDAO;
-<<<<<<< Pallo
 import static java.lang.Boolean.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-=======
-import java.time.OffsetDateTime;
->>>>>>> main
 import util.PYException;
 /**
  *
@@ -61,13 +57,4 @@ public class elquemanejaelparqueadero {
         
     }
     
-<<<<<<< Pallo
-=======
-    
-    public void insertarFechaHoraEnBD(OffsetDateTime fechaHora) throws PYException{
-        Registro Registro = new Registro();
-        Registro.setFecha_ingreso(fechaHora);
-        VehiculoDAO.insertarFechaHoraEnBD(fechaHora);
-    }
->>>>>>> main
 }
