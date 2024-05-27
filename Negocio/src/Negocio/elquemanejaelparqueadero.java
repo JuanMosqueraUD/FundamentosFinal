@@ -5,6 +5,7 @@
 package Negocio;
 import datos.VehiculoDAO;
 import java.time.OffsetDateTime;
+import javax.swing.JOptionPane;
 import util.PYException;
 /**
  *
@@ -20,11 +21,37 @@ public class elquemanejaelparqueadero {
     }
     
   
-    public void incluirVehiculo(String placa, String tipo) throws PYException {
-        Vehiculo Vehiculo = new Vehiculo();
-        Vehiculo.setPlaca(placa);
-        Vehiculo.setTipo(tipo);
-        VehiculoDAO.incluirVehiculo(Vehiculo);
+   public void incluirVehiculo(String placa, String tipo, String area) throws PYException {
+
+        Plaza Plaza = VehiculoDAO.buscarPlaza(area+Integer.toString(1));
+        if(Plaza.estaOcupado()== false){
+           Plaza.setEstado(true);
+           Vehiculo Vehiculo = new Vehiculo();
+           Vehiculo.setPlaca(placa);
+           Vehiculo.setTipo(tipo);
+           VehiculoDAO.incluirVehiculo(Vehiculo,Plaza);
+           VehiculoDAO.updatePlaza(Plaza, Vehiculo);
+           JOptionPane.showMessageDialog(null, "plaza asignada " + Plaza.getidPlaza());
+        }else if(Plaza.estaOcupado()== true){
+            Plaza = VehiculoDAO.buscarPlaza(area+Integer.toString(2));
+            if(Plaza.estaOcupado()== false){
+                Plaza.setEstado(true);
+                Vehiculo Vehiculo = new Vehiculo();
+                Vehiculo.setPlaca(placa);
+                Vehiculo.setTipo(tipo);
+                VehiculoDAO.incluirVehiculo(Vehiculo,Plaza);
+                VehiculoDAO.updatePlaza(Plaza, Vehiculo);
+                JOptionPane.showMessageDialog(null, "plaza asignada " + Plaza.getidPlaza());
+            }else{
+                JOptionPane.showMessageDialog(null, "no hay plazas disponibles en esta area");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "no hay plazas disponibles en esta area");
+        }
+
+
+
+
     }
     
     
