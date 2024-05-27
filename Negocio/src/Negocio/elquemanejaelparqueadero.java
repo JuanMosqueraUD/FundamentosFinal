@@ -4,6 +4,7 @@
  */
 package Negocio;
 import datos.VehiculoDAO;
+import java.time.OffsetDateTime;
 import util.PYException;
 /**
  *
@@ -24,5 +25,12 @@ public class elquemanejaelparqueadero {
         Vehiculo.setPlaca(placa);
         Vehiculo.setTipo(tipo);
         VehiculoDAO.incluirVehiculo(Vehiculo);
+    }
+    
+    
+    public void insertarFechaHoraEnBD(OffsetDateTime fechaHora) throws PYException{
+        Registro Registro = new Registro();
+        Registro.setFecha_ingreso(fechaHora);
+        VehiculoDAO.insertarFechaHoraEnBD(fechaHora);
     }
 }

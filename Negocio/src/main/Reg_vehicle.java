@@ -14,6 +14,11 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import util.PYException;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import static java.time.OffsetDateTime.now;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+
 
 /**
  *
@@ -441,6 +446,8 @@ public class Reg_vehicle extends javax.swing.JFrame {
               
           }
         
+        
+        
         newframe.setVisible(true);
         
         this.dispose();
@@ -459,13 +466,16 @@ public class Reg_vehicle extends javax.swing.JFrame {
     }//GEN-LAST:event_l_horayfechaingMouseExited
 
     private void l_horayfechaingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseClicked
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSXXX");
         String formattedDateTime = now.format(formatter);
-
-        // Establecer la fecha y hora actual en el JLabel `fecha_actual`
         fecha_actual.setText(formattedDateTime);
-    
+        try {
+            manager.insertarFechaHoraEnBD(now);
+        } catch (PYException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_l_horayfechaingMouseClicked
 
     /**
