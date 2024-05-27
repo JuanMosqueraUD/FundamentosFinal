@@ -24,10 +24,37 @@ values ('roberto', 'cll 10', 2, 3, 'concreto', 'Chapinero');
 insert into Area (k_idArea, n_descripcion, k_nombre, k_direccion) 
 values ('1', 'askal', 'roberto', 'cll 10')
 
+INSERT INTO Factura (f_salida) VALUES (null)
+select * from Factura
+select * from Registro
+insert into factura (k_idpago, f_salida,k_idregistro,v_valortotal) values ('1', NULL)
+insert into Registro (i_tiposervicio) values (null)
 
+--funcion
+CREATE OR REPLACE FUNCTION registrar_salida_vehiculo(
+    placa varchar(6),
+    fecha_salida timestamp with time zone
+) RETURNS void AS $$
+BEGIN
+    -- Actualiza el registro con la fecha y hora de salida
+    UPDATE Registro
+    SET f_salida = fecha_salida,
+        q_minutosTotales = EXTRACT(EPOCH FROM (fecha_salida - f_ingreso)) / 60
+    WHERE k_idRegistro = (
+        SELECT k_idRegistro
+        FROM Plaza
+        WHERE k_placa = placa
+        ORDER BY f_ingreso DESC
+        LIMIT 1
+    );
 
-select * from Vehiculo
-
+    -- Opcional: Marca la plaza como desocupada
+    UPDATE Plaza
+    SET i_estaOcupado = FALSE,
+        k_placa = NULL
+    WHERE k_placa = placa;
+END;
+$$ LANGUAGE plpgsql;
 
 
 /* ---------------------------------------------------- */
@@ -360,16 +387,13 @@ ALTER TABLE PlazaContrato ADD CONSTRAINT FK_PlazaContrato_Plaza
 	FOREIGN KEY (k_nomenclatura) REFERENCES Plaza (k_nomenclatura) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE Registro ADD CONSTRAINT FK_Registro_Factura
-	FOREIGN KEY (k_idPago) REFERENCES Factura (k_idPago) ON DELETE No Action ON UPDATE No Action
-;
+
+
 
 ALTER TABLE Registro ADD CONSTRAINT FK_Registro_Parqueadero
 	FOREIGN KEY (k_nombre,k_direccion) REFERENCES Parqueadero (k_nombre,k_direccion) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE Vehiculo ADD CONSTRAINT FK_Vehiculo_Plaza
-	FOREIGN KEY (k_nomenclatura) REFERENCES Plaza (k_nomenclatura) ON DELETE No Action ON UPDATE No Action
-;
+
 
 
