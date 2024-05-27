@@ -1,5 +1,6 @@
  package datos;
 
+import Negocio.Parqueadero;
 import Negocio.Plaza;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -78,14 +79,16 @@ public class VehiculoDAO {
 
     }
      
-    public void insertarFechaHoraEnBD(OffsetDateTime fechaHora) throws PYException {
+    public void insertarFechaHoraEnBD(OffsetDateTime fechaHora, Parqueadero Parqueadero ) throws PYException {
          try{
              
          
-        String strSQL = "INSERT INTO Registro (f_ingreso) VALUES (?)";
+        String strSQL = "INSERT INTO Registro (f_ingreso, k_direccion, k_nombre) VALUES (?,?,?) ";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
-        prepStmt.setObject(1,fechaHora); 
+        prepStmt.setObject(1,fechaHora);
+        prepStmt.setString(2, Parqueadero.getDireccion()); 
+        prepStmt.setString(3,Parqueadero.getNombre()); 
         prepStmt.executeUpdate();
         prepStmt.close();
         ServiceLocator.getInstance().commit();
@@ -104,7 +107,7 @@ public class VehiculoDAO {
          try{
              
          
-        String strSQL = "INSERT INTO Registro (f_salida) VALUES (?)";
+        String strSQL = "INSERT INTO Registro f_salida VALUES (?)";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
         prepStmt.setObject(1,fechaHora); 
@@ -134,6 +137,7 @@ public class VehiculoDAO {
         prepStmt.setString(3, Plaza.getidPlaza()); 
         prepStmt.executeUpdate();
         prepStmt.close();
+        
         ServiceLocator.getInstance().commit();
         
         
@@ -190,6 +194,28 @@ public class VehiculoDAO {
          ServiceLocator.getInstance().liberarConexion();
       }
 
+    }
+    
+    public  void incluirParqueadero(Parqueadero Parqueadero) throws PYException {
+      try {
+      
+        String strSQL = "UPDATE Registro set k_direccion = ?, k_nombre= ? WHERE k_direccion = ? and k_nombre= ?" ;
+        Connection conexion = ServiceLocator.getInstance().tomarConexion();
+        PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+        prepStmt.setString(1, Parqueadero.getDireccion()); 
+        prepStmt.setString(2,Parqueadero.getNombre()); 
+        prepStmt.setString(3, Parqueadero.getDireccion()); 
+        prepStmt.setString(4,Parqueadero.getNombre()); 
+        prepStmt.executeUpdate();
+        prepStmt.close();
+        ServiceLocator.getInstance().commit();
+      } catch (SQLException e) {
+           ServiceLocator.getInstance().rollback();
+           throw new PYException( "EmpleadoDAO", "No pudo crear el empleado"+ e.getMessage());
+      }  finally {
+         ServiceLocator.getInstance().liberarConexion();
+      }
+      
     }
 }
 
