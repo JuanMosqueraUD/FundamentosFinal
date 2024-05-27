@@ -11,6 +11,7 @@ package Negocio;
 public class Vehiculo {
     private String  placa;
     private String  tipo;
+    private String nomenclatura;
    
     
     
@@ -36,6 +37,14 @@ public class Vehiculo {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+
+    public String getNomenclatura() {
+        return nomenclatura;
+    }
+
+    public void setNomenclatura(String nomenclatura) {
+        this.nomenclatura = nomenclatura;
+    }
 
 
 	
