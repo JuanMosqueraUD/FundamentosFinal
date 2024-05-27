@@ -34,7 +34,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
     /**
      * Creates new form Reg_vehicle
      */
-    public Reg_vehicle(String vehicleType) {
+    public Reg_vehicle(String vehicleType) throws PYException {
         this.manager = manager;
         this.vehicleType = vehicleType;
        
@@ -68,6 +68,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
         p_regis = new javax.swing.JPanel();
         l_regis = new javax.swing.JLabel();
         p_message = new javax.swing.JPanel();
+        areaField = new javax.swing.JTextField();
         imgbtnatras = new javax.swing.JLabel();
         P_superiorbar = new javax.swing.JPanel();
         P_exit = new javax.swing.JPanel();
@@ -162,21 +163,15 @@ public class Reg_vehicle extends javax.swing.JFrame {
         btn_horayfechaing.setLayout(btn_horayfechaingLayout);
         btn_horayfechaingLayout.setHorizontalGroup(
             btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
-            .addGroup(btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btn_horayfechaingLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_horayfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_horayfechaingLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(l_horayfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btn_horayfechaingLayout.setVerticalGroup(
             btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-            .addGroup(btn_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btn_horayfechaingLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(l_horayfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(btn_horayfechaingLayout.createSequentialGroup()
+                .addComponent(l_horayfechaing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1.add(btn_horayfechaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 220, 40));
@@ -235,15 +230,22 @@ public class Reg_vehicle extends javax.swing.JFrame {
         p_message.setBackground(new java.awt.Color(255, 255, 255));
         p_message.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        areaField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        areaField.setText("Area");
+
         javax.swing.GroupLayout p_messageLayout = new javax.swing.GroupLayout(p_message);
         p_message.setLayout(p_messageLayout);
         p_messageLayout.setHorizontalGroup(
             p_messageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(p_messageLayout.createSequentialGroup()
+                .addComponent(areaField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 208, Short.MAX_VALUE))
         );
         p_messageLayout.setVerticalGroup(
             p_messageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(p_messageLayout.createSequentialGroup()
+                .addComponent(areaField, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel1.add(p_message, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 370, 100));
@@ -439,7 +441,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
         try {
         	  
               
-               manager.incluirVehiculo(f_placa.getText(), Tipo_Vehiculo.getText());
+              manager.incluirVehiculo(f_placa.getText(), Tipo_Vehiculo.getText(),areaField.getText());
               JOptionPane.showMessageDialog(null,  "Registro Incluido Exitosamente", null, JOptionPane.INFORMATION_MESSAGE);
           } catch (PYException f) {
               JOptionPane.showMessageDialog(null, f, "Error", JOptionPane.ERROR_MESSAGE);
@@ -459,6 +461,8 @@ public class Reg_vehicle extends javax.swing.JFrame {
 
     private void l_horayfechaingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseEntered
         btn_horayfechaing.setBackground(new Color(255, 222, 89));
+        
+        
     }//GEN-LAST:event_l_horayfechaingMouseEntered
 
     private void l_horayfechaingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseExited
@@ -466,6 +470,8 @@ public class Reg_vehicle extends javax.swing.JFrame {
     }//GEN-LAST:event_l_horayfechaingMouseExited
 
     private void l_horayfechaingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseClicked
+<<<<<<< Pallo
+=======
         OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSXXX");
         String formattedDateTime = now.format(formatter);
@@ -475,6 +481,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
         } catch (PYException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
+>>>>>>> main
         
     }//GEN-LAST:event_l_horayfechaingMouseClicked
 
@@ -488,6 +495,7 @@ public class Reg_vehicle extends javax.swing.JFrame {
     private javax.swing.JPanel P_exit;
     private javax.swing.JPanel P_superiorbar;
     private javax.swing.JLabel Tipo_Vehiculo;
+    private javax.swing.JTextField areaField;
     private javax.swing.JPanel btn_horayfechaing;
     private javax.swing.JTextField f_placa;
     private javax.swing.JLabel fecha_actual;
