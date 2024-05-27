@@ -13,7 +13,8 @@ import java.time.*;
 public class Registro {
     
     private String id;
-    private String fecha_ingreso;
+    private OffsetDateTime fecha_ingreso;
+    private OffsetDateTime fecha_salida;
     private String minutos_totales;
     private String tipo_servicio;
     
@@ -32,13 +33,23 @@ public class Registro {
         this.id = id;
     }
 
-    public String getFecha_ingreso() {
+    public OffsetDateTime getFecha_ingreso() {
         return fecha_ingreso;
     }
 
-    public void setFecha_ingreso(String fecha_ingreso) {
+    public void setFecha_ingreso(OffsetDateTime fecha_ingreso) {
         this.fecha_ingreso = fecha_ingreso;
     }
+
+    public OffsetDateTime getFecha_salida() {
+        return fecha_salida;
+    }
+
+    public void setFecha_salida(OffsetDateTime fecha_salida) {
+        this.fecha_salida = fecha_salida;
+    }
+
+    
 
     public String getMinutos_totales() {
         return minutos_totales;
@@ -56,5 +67,10 @@ public class Registro {
         this.tipo_servicio = tipo_servicio;
     }
     
+ 
     
+    
+   
 }
+
+
