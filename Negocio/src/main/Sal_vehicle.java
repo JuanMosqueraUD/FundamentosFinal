@@ -4,7 +4,20 @@
  */
 package main;
 
+import Negocio.Vehiculo;
+import Negocio.elquemanejaelparqueadero;
 import java.awt.Color;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import util.PYException;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import static java.time.OffsetDateTime.now;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 
 /**
  *
@@ -13,11 +26,14 @@ import java.awt.Color;
 public class Sal_vehicle extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    private  elquemanejaelparqueadero manager;
     /**
      * Creates new form Sal_vehicle
      */
     public Sal_vehicle() {
+        this.manager = manager;
         initComponents();
+        manager = new elquemanejaelparqueadero();
     }
 
     /**
@@ -33,6 +49,7 @@ public class Sal_vehicle extends javax.swing.JFrame {
         f_placa = new javax.swing.JTextField();
         img_placa = new javax.swing.JLabel();
         p_horayfechaing = new javax.swing.JPanel();
+        fecha_salida = new javax.swing.JLabel();
         btn_horayfechaing = new javax.swing.JPanel();
         l_horayfechaing = new javax.swing.JLabel();
         img_fecahHorasal = new javax.swing.JLabel();
@@ -80,15 +97,28 @@ public class Sal_vehicle extends javax.swing.JFrame {
         p_horayfechaing.setBackground(new java.awt.Color(255, 255, 255));
         p_horayfechaing.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        fecha_salida.setText("jLabel1");
+        fecha_salida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fecha_salidaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout p_horayfechaingLayout = new javax.swing.GroupLayout(p_horayfechaing);
         p_horayfechaing.setLayout(p_horayfechaingLayout);
         p_horayfechaingLayout.setHorizontalGroup(
             p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
+            .addGroup(p_horayfechaingLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(fecha_salida, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         p_horayfechaingLayout.setVerticalGroup(
             p_horayfechaingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
+            .addGroup(p_horayfechaingLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(fecha_salida, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel1.add(p_horayfechaing, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 350, 80));
@@ -100,6 +130,9 @@ public class Sal_vehicle extends javax.swing.JFrame {
         l_horayfechaing.setText("Fecha y Hora Actual");
         l_horayfechaing.setPreferredSize(new java.awt.Dimension(220, 40));
         l_horayfechaing.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                l_horayfechaingMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 l_horayfechaingMouseEntered(evt);
             }
@@ -377,6 +410,22 @@ public class Sal_vehicle extends javax.swing.JFrame {
         btn_horayfechaing.setBackground(Color.white);
     }//GEN-LAST:event_l_horayfechaingMouseExited
 
+    private void fecha_salidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fecha_salidaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fecha_salidaMouseClicked
+
+    private void l_horayfechaingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseClicked
+        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSXXX");
+        String formattedDateTime = now.format(formatter);
+        fecha_salida.setText(formattedDateTime);
+        try {
+            manager.insertarFechaHoraSalida(now);
+        } catch (PYException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_l_horayfechaingMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -418,6 +467,7 @@ public class Sal_vehicle extends javax.swing.JFrame {
     private javax.swing.JPanel P_superiorbar;
     private javax.swing.JPanel btn_horayfechaing;
     private javax.swing.JTextField f_placa;
+    private javax.swing.JLabel fecha_salida;
     private javax.swing.JLabel img_btnatras;
     private javax.swing.JLabel img_fecahHorasal;
     private javax.swing.JLabel img_placa;
