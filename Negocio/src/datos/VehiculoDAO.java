@@ -119,7 +119,7 @@ public class VehiculoDAO {
          try{
              
          
-        String strSQL = "UPDATE registro set f_salida = ? from parqueadero, plaza, vehiculo WHERE vehiculo.k_placa = ? AND vehiculo.k_nomenclatura = plaza.k_nomenclatura AND registro.k_nombre = 'fontibon'  AND registro.k_direccion = 'cra89b-16b'";
+        String strSQL = "UPDATE registro set f_salida = ? from parqueadero, area, plaza, vehiculo WHERE vehiculo.k_placa = ? AND vehiculo.k_nomenclatura = plaza.k_nomenclatura AND registro.k_nombre = area.k_nombre AND area.k_idArea= plaza.k_idArea AND plaza.k_nomenclatura = vehiculo.k_nomenclatura;";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
         prepStmt.setObject(1,fechaHora); 
