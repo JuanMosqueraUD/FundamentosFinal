@@ -1,5 +1,6 @@
  package datos;
 
+import Negocio.Factura;
 import Negocio.Parqueadero;
 import Negocio.Plaza;
 import java.sql.Connection;
@@ -14,6 +15,7 @@ import Negocio.Vehiculo;
 
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
+import java.util.HashSet;
 import util.PYException;
 import util.ServiceLocator;
 
@@ -119,7 +121,7 @@ public class VehiculoDAO {
          try{
              
          
-        String strSQL = "UPDATE registro set f_salida = ? from parqueadero, area, plaza, vehiculo WHERE vehiculo.k_placa = ? AND vehiculo.k_nomenclatura = plaza.k_nomenclatura AND registro.k_nombre = area.k_nombre AND area.k_idArea= plaza.k_idArea AND plaza.k_nomenclatura = vehiculo.k_nomenclatura;";
+        String strSQL = "update registro set f_salida= ? where k_idregistro=(select k_idregistro from registro, vehiculo, plaza, area, parqueadero where (vehiculo.k_placa = ? and vehiculo.k_nomenclatura=plaza.k_nomenclatura and plaza.k_idArea=area.k_idArea and area.k_nombre=parqueadero.k_nombre and area.k_direccion=parqueadero.k_direccion and registro.k_nombre=parqueadero.k_nombre and registro.k_direccion=parqueadero.k_direccion))";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
         prepStmt.setObject(1,fechaHora); 
@@ -162,6 +164,41 @@ public class VehiculoDAO {
       }
       
     }
+    
+  
+    public Factura buscarFactura(String placa) throws PYException{
+            boolean existe = false;
+        try {
+            Factura e = new Factura(); //Instancia el objeto para retornar los datos del empleado
+            String strSQL = "select f_ingreso, f_salida, k_idregistro from registro\n" +
+"where k_idregistro=(select k_idregistro from registro, vehiculo, plaza, area, parqueadero \n" +
+"where (vehiculo.k_placa = ? and vehiculo.k_nomenclatura=plaza.k_nomenclatura \n" +
+"and plaza.k_idArea=area.k_idArea and area.k_nombre=parqueadero.k_nombre \n" +
+"and area.k_direccion=parqueadero.k_direccion \n" +
+"and registro.k_nombre=parqueadero.k_nombre \n" +
+"and registro.k_direccion=parqueadero.k_direccion))";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setString(1, placa);
+            ResultSet rs = prepStmt.executeQuery();
+            while (rs.next()) {
+                e.setFecha_entrada((String) rs.getObject("f_entrada"));
+                e.setFecha_salida((String) rs.getObject("f_salida"));
+                e.setId_pago(rs.getString("k_idregistro"));
+                existe = true;
+            }
+            if (existe) 
+                return e;
+             else
+                return null;
+        } catch (SQLException e) {
+            throw new PYException("VahiculoDAO", e.getMessage());
+        } finally {
+            ServiceLocator.getInstance().liberarConexion();
+        }
+    }
+  
+    
     
     public Plaza buscarPlaza(String nomenclaturaPlaza) throws PYException {
         boolean existe = false;

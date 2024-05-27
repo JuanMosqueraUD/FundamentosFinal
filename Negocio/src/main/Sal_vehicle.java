@@ -395,7 +395,9 @@ public class Sal_vehicle extends javax.swing.JFrame {
     }//GEN-LAST:event_P_superiorbarMousePressed
 
     private void l_btngenreciboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_btngenreciboMouseClicked
-        Recibo newframe = new Recibo();
+
+        
+        Recibo newframe = new Recibo(f_placa.getText());
         
         newframe.setVisible(true);
         

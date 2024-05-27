@@ -15,7 +15,16 @@ public class Factura {
     
     private String id_pago;
     private int valor_final;
+    private String fecha_entrada;
     private String fecha_salida;
+
+    public void setFecha_entrada(String fecha_entrada) {
+        this.fecha_entrada = fecha_entrada;
+    }
+
+    public String getFecha_entrada() {
+        return fecha_entrada;
+    }
 
     public String getId_pago() {
         return id_pago;

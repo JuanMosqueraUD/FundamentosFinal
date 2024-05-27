@@ -5,6 +5,8 @@
 package Negocio;
 import datos.VehiculoDAO;
 import java.time.OffsetDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import util.PYException;
 /**
@@ -73,5 +75,33 @@ public class elquemanejaelparqueadero {
         Registro.setFecha_salida(fechaHora);
         Vehiculo.setPlaca(placa);
         VehiculoDAO.insertarFechaHoraSalida(fechaHora, Vehiculo);
+        JOptionPane.showMessageDialog(null, "Recibo listo para generar");
     }
+    
+        public String getHoraEntrada(String placa){
+        try {
+            Factura Factura = VehiculoDAO.buscarFactura(placa);
+            String entrada = Factura.getFecha_entrada();
+            return entrada;
+        } catch (PYException ex) {
+            Logger.getLogger(elquemanejaelparqueadero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+        
+        public String getHoraSalida(String placa){
+        try {
+            Factura Factura = VehiculoDAO.buscarFactura(placa);
+            String salida = Factura.getFecha_salida();
+            return salida;
+        } catch (PYException ex) {
+            Logger.getLogger(elquemanejaelparqueadero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    
 }
+
+
+
