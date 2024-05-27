@@ -14,6 +14,7 @@ public class Registro {
     
     private String id;
     private OffsetDateTime fecha_ingreso;
+    private OffsetDateTime fecha_salida;
     private String minutos_totales;
     private String tipo_servicio;
     
@@ -38,6 +39,14 @@ public class Registro {
 
     public void setFecha_ingreso(OffsetDateTime fecha_ingreso) {
         this.fecha_ingreso = fecha_ingreso;
+    }
+
+    public OffsetDateTime getFecha_salida() {
+        return fecha_salida;
+    }
+
+    public void setFecha_salida(OffsetDateTime fecha_salida) {
+        this.fecha_salida = fecha_salida;
     }
 
     

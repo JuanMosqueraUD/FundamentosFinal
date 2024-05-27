@@ -167,6 +167,28 @@ public class VehiculoDAO {
     
  
  }
+    
+    public void insertarFechaHoraSalida(OffsetDateTime fechaHora) throws PYException {
+         try{
+             
+         
+        String strSQL = "INSERT INTO Registro (f_salida) VALUES (?)";
+        Connection conexion = ServiceLocator.getInstance().tomarConexion();
+        PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+        prepStmt.setObject(1,fechaHora); 
+        prepStmt.executeUpdate();
+        prepStmt.close();
+        ServiceLocator.getInstance().commit();
+     } catch (SQLException e) {
+           ServiceLocator.getInstance().rollback();
+           throw new PYException( "EmpleadoDAO", "No pudo crear el empleado"+ e.getMessage());
+      }  finally {
+         ServiceLocator.getInstance().liberarConexion();
+      }
+    
+    
+ 
+ }
 }
 
 

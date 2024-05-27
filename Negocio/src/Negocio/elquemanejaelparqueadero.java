@@ -4,14 +4,7 @@
  */
 package Negocio;
 import datos.VehiculoDAO;
-<<<<<<< Pallo
-import static java.lang.Boolean.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-=======
 import java.time.OffsetDateTime;
->>>>>>> main
 import util.PYException;
 /**
  *
@@ -21,53 +14,30 @@ public class elquemanejaelparqueadero {
     private Vehiculo Vehiculo;
     private VehiculoDAO VehiculoDAO;
     
-    public elquemanejaelparqueadero() throws PYException {
+    public elquemanejaelparqueadero() {
        VehiculoDAO = new VehiculoDAO();
-     
        
     }
     
   
-    public void incluirVehiculo(String placa, String tipo, String area) throws PYException {
-        
-        Plaza Plaza = VehiculoDAO.buscarPlaza(area+Integer.toString(1));
-        if(Plaza.estaOcupado()== false){
-           Plaza.setEstado(true);
-           Vehiculo Vehiculo = new Vehiculo();
-           Vehiculo.setPlaca(placa);
-           Vehiculo.setTipo(tipo);
-           VehiculoDAO.incluirVehiculo(Vehiculo,Plaza);
-           VehiculoDAO.updatePlaza(Plaza, Vehiculo);    
-           JOptionPane.showMessageDialog(null, "plaza asignada " + Plaza.getidPlaza());
-        }else if(Plaza.estaOcupado()== true){
-            Plaza = VehiculoDAO.buscarPlaza(area+Integer.toString(2));
-            if(Plaza.estaOcupado()== false){
-                Plaza.setEstado(true);                
-                Vehiculo Vehiculo = new Vehiculo();
-                Vehiculo.setPlaca(placa);
-                Vehiculo.setTipo(tipo);
-                VehiculoDAO.incluirVehiculo(Vehiculo,Plaza);
-                VehiculoDAO.updatePlaza(Plaza, Vehiculo);  
-                JOptionPane.showMessageDialog(null, "plaza asignada " + Plaza.getidPlaza());
-            }else{
-                JOptionPane.showMessageDialog(null, "no hay plazas disponibles en esta area");
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "no hay plazas disponibles en esta area");
-        }
-                
-        
-
-        
+    public void incluirVehiculo(String placa, String tipo) throws PYException {
+        Vehiculo Vehiculo = new Vehiculo();
+        Vehiculo.setPlaca(placa);
+        Vehiculo.setTipo(tipo);
+        VehiculoDAO.incluirVehiculo(Vehiculo);
     }
     
-<<<<<<< Pallo
-=======
     
     public void insertarFechaHoraEnBD(OffsetDateTime fechaHora) throws PYException{
         Registro Registro = new Registro();
         Registro.setFecha_ingreso(fechaHora);
         VehiculoDAO.insertarFechaHoraEnBD(fechaHora);
     }
->>>>>>> main
+    
+    
+    public void insertarFechaHoraSalida(OffsetDateTime fechaHora) throws PYException{
+        Registro Registro = new Registro();
+        Registro.setFecha_salida(fechaHora);
+        VehiculoDAO.insertarFechaHoraSalida(fechaHora);
+    }
 }

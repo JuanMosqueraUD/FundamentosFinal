@@ -214,8 +214,8 @@ CREATE TABLE Registro
 	q_minutosTotales numeric(8) ,	-- Cantidad de minutos en los que el vehiculo utilizo el servicio
 	i_tipoServicio varchar(8) ,
 	k_direccion varchar(40) ,
-	k_nombre varchar(20) ,
-	k_idPago bigserial 
+	k_nombre varchar(20) 
+	
 )
 ;
 
@@ -233,8 +233,8 @@ CREATE TABLE Vehiculo
 	i_tipo varchar(15) ,	-- Tipo de vehiculo(bicicleta, motocicleta, automovil, camioneta, campero, vehiculo pesado)
 	n_marca varchar(15) ,	-- marca del vehiculo
 	n_modelo varchar(20) ,	-- modelo del vehiculo
-	n_color varchar(10) ,	-- color del vehiculo
-	k_nomenclatura varchar(6) 
+	n_color varchar(10) 	-- color del vehiculo
+	
 )
 ;
 
