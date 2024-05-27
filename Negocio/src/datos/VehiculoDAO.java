@@ -196,27 +196,7 @@ public class VehiculoDAO {
 
     }
     
-    public  void incluirParqueadero(Parqueadero Parqueadero) throws PYException {
-      try {
-      
-        String strSQL = "UPDATE Registro set k_direccion = ?, k_nombre= ? WHERE k_direccion = ? and k_nombre= ?" ;
-        Connection conexion = ServiceLocator.getInstance().tomarConexion();
-        PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
-        prepStmt.setString(1, Parqueadero.getDireccion()); 
-        prepStmt.setString(2,Parqueadero.getNombre()); 
-        prepStmt.setString(3, Parqueadero.getDireccion()); 
-        prepStmt.setString(4,Parqueadero.getNombre()); 
-        prepStmt.executeUpdate();
-        prepStmt.close();
-        ServiceLocator.getInstance().commit();
-      } catch (SQLException e) {
-           ServiceLocator.getInstance().rollback();
-           throw new PYException( "EmpleadoDAO", "No pudo crear el empleado"+ e.getMessage());
-      }  finally {
-         ServiceLocator.getInstance().liberarConexion();
-      }
-      
-    }
+    
 }
 
 
