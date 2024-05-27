@@ -415,12 +415,13 @@ public class Sal_vehicle extends javax.swing.JFrame {
     }//GEN-LAST:event_fecha_salidaMouseClicked
 
     private void l_horayfechaingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l_horayfechaingMouseClicked
+       
         OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSXXX");
         String formattedDateTime = now.format(formatter);
         fecha_salida.setText(formattedDateTime);
         try {
-            manager.insertarFechaHoraSalida(now);
+            manager.insertarFechaHoraSalida(now, f_placa.getText());
         } catch (PYException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }

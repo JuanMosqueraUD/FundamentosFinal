@@ -115,14 +115,15 @@ public class VehiculoDAO {
  
  }
     
-    public void insertarFechaHoraSalida(OffsetDateTime fechaHora) throws PYException {
+    public void insertarFechaHoraSalida(OffsetDateTime fechaHora, Vehiculo Vehiculo) throws PYException {
          try{
              
          
-        String strSQL = "INSERT INTO Registro f_salida VALUES (?)";
+        String strSQL = "UPDATE registro set f_salida = ? from parqueadero, plaza, vehiculo WHERE vehiculo.k_placa = ? AND vehiculo.k_nomenclatura = plaza.k_nomenclatura AND registro.k_nombre = 'fontibon'  AND registro.k_direccion = 'cra89b-16b'";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
         prepStmt.setObject(1,fechaHora); 
+        prepStmt.setObject(2,Vehiculo.getPlaca()); 
         prepStmt.executeUpdate();
         prepStmt.close();
         ServiceLocator.getInstance().commit();

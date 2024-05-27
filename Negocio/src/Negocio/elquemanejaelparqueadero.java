@@ -67,9 +67,11 @@ public class elquemanejaelparqueadero {
     }
     
     
-    public void insertarFechaHoraSalida(OffsetDateTime fechaHora) throws PYException{
+    public void insertarFechaHoraSalida(OffsetDateTime fechaHora, String placa) throws PYException{
+        Vehiculo Vehiculo = new Vehiculo();
         Registro Registro = new Registro();
         Registro.setFecha_salida(fechaHora);
-        VehiculoDAO.insertarFechaHoraSalida(fechaHora);
+        Vehiculo.setPlaca(placa);
+        VehiculoDAO.insertarFechaHoraSalida(fechaHora, Vehiculo);
     }
 }
