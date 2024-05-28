@@ -200,8 +200,8 @@ CREATE TABLE Registro
 CREATE TABLE Tarifa
 (
 	k_tipoVehiculo varchar(20) ,	-- tipo del vehiculo
-	v_valor money ,	-- valor total a pagar
-	f_vigencia timestamp with time zone 	-- fecha de vigencia de la tarifa
+	v_valor numeric(4,0) ,	-- valor total a pagar
+	f_vigencia date 	-- fecha de vigencia de la tarifa
 )
 ;
 

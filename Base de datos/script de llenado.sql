@@ -43,5 +43,12 @@ INSERT INTO plaza (k_nomenclatura, i_estaocupado, k_idarea) VALUES ('sb1', FALSE
 INSERT INTO plaza (k_nomenclatura, i_estaocupado, k_idarea) VALUES ('sb2', FALSE, 'sb');
 
 
+--- Tarifas 
+insert into tarifa values('Automovil', 163, '03/03/2025')
+insert into tarifa values('Campero', 163, '03/03/2025')
+insert into tarifa values('Camioneta', 163, '03/03/2025')
+insert into tarifa values('Vehiculo Pesado', 163, '03/03/2025')
+insert into tarifa values('Motocicleta', 114, '03/03/2025')
+insert into tarifa values('Bicicleta', 10, '03/03/2025')
 
 
