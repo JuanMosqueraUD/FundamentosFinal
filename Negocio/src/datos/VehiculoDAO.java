@@ -4,6 +4,7 @@ import Negocio.Factura;
 import Negocio.Parqueadero;
 import Negocio.Plaza;
 import Negocio.Registro;
+import Negocio.Tarifa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -224,6 +225,71 @@ public class VehiculoDAO {
          ServiceLocator.getInstance().liberarConexion();
       }
 
+    }
+    
+    
+    public Tarifa Tarifa(String tipoVehiculo, String Placa) throws PYException {
+        boolean existe = false;
+        try {
+            Tarifa t = new Tarifa();
+        String strSQL = "select v_valor from tarifa, registro where k_tipovehiculo= ? and k_idregistro=(select k_idregistro from registro, vehiculo, plaza, area, parqueadero \n" +
+"where (vehiculo.k_placa = ? and vehiculo.k_nomenclatura=plaza.k_nomenclatura\n" +
+"and plaza.k_idArea=area.k_idArea and area.k_nombre=parqueadero.k_nombre \n" +
+"and area.k_direccion=parqueadero.k_direccion\n" +
+"and registro.k_nombre=parqueadero.k_nombre\n" +
+"and registro.k_direccion=parqueadero.k_direccion)) ";
+        Connection conexion = ServiceLocator.getInstance().tomarConexion();
+        PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+        prepStmt.setString(1, tipoVehiculo);
+        prepStmt.setString(2, Placa);
+        ResultSet rs = prepStmt.executeQuery();
+        while (rs.next()) {
+                t.setValor(rs.getInt("v_valor"));
+                
+                existe = true;
+            }
+     
+  
+        if (existe) 
+              return t;
+        else
+                return null;
+      } catch (SQLException e) {
+           ServiceLocator.getInstance().rollback();
+           throw new PYException( "EmpleadoDAO", "No pudo crear el empleado"+ e.getMessage());
+      }  finally {
+         ServiceLocator.getInstance().liberarConexion();
+      }
+    }
+    
+    
+    public Vehiculo buscarTipoVehiculo(String placa) throws PYException{
+        boolean existe = false;
+        try{
+            Vehiculo Vehiculo = new Vehiculo();
+            String strSQL= "SELECT i_tipo FROM vehiculo WHERE k_placa = ? ";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setString(1, placa);
+            ResultSet rs = prepStmt.executeQuery();
+            while (rs.next()) {
+                Vehiculo.setTipo(rs.getString("i_tipo"));
+                
+                existe = true;
+            }
+            
+            
+             if (existe) 
+                return Vehiculo;
+             else
+                return null;
+        }catch (SQLException e) {
+           ServiceLocator.getInstance().rollback();
+           throw new PYException( "Efdfdf", "pene pene"+ e.getMessage());
+      }  finally {
+         ServiceLocator.getInstance().liberarConexion();
+      }
+        
     }
     
     

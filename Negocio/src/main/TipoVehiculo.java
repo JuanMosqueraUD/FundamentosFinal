@@ -26,6 +26,10 @@ public class TipoVehiculo extends javax.swing.JFrame {
         initComponents();
         selectedVehicleType = (String) jComboBox1.getSelectedItem(); 
     }
+    
+    public String getTipoVehiculoSeleccionado() {
+        return (String) jComboBox1.getSelectedItem();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

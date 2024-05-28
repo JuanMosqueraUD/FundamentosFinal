@@ -20,10 +20,13 @@ public class Recibo extends javax.swing.JFrame {
     int xMouse, yMouse;
     private String placa;
     private elquemanejaelparqueadero manager;
+    
+
     /**
      * Creates new form Recibo
      */
     public Recibo(String placa) {
+        
         initComponents();
         manager = new elquemanejaelparqueadero();
         placaLabel.setText(placa);
@@ -35,11 +38,17 @@ public class Recibo extends javax.swing.JFrame {
         LocalDateTime salida = LocalDateTime.parse(salidastr, formatter);
         Duration duracion = Duration.between(entrada, salida);
         long minutosTotales = duracion.toMinutes();
-        
+        long ValorTarifa= manager.Tarifa(placa);
+        String valor= Long.toString(ValorTarifa);
+        long ValorTotal= ValorTarifa * minutosTotales;
+        String valorT = Long.toString(ValorTotal);
         horaEntrada.setText(entradastr);
         horaSalida.setText(salidastr);
         id_pago.setText(idpago);
-        minutos_Totales.setText(Long.toString(minutosTotales));
+        minutos_Totales.setText(Long.toString(minutosTotales) + "minutos");
+        valor_tarifa.setText(valor);
+        valor_total.setText(valorT);
+        
     }
 
     /**
@@ -59,6 +68,9 @@ public class Recibo extends javax.swing.JFrame {
         p_btnimp = new javax.swing.JPanel();
         l_imp = new javax.swing.JLabel();
         minutos_Totales = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        valor_tarifa = new javax.swing.JLabel();
+        valor_total = new javax.swing.JLabel();
         img_format = new javax.swing.JLabel();
         img_left = new javax.swing.JLabel();
         P_superiorbar = new javax.swing.JPanel();
@@ -137,8 +149,29 @@ public class Recibo extends javax.swing.JFrame {
         minutos_Totales.setText("jLabel1");
         jPanel1.add(minutos_Totales, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, -1));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 290, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 290, 40));
+
+        valor_tarifa.setText("jLabel1");
+        jPanel1.add(valor_tarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, -1));
+
+        valor_total.setText("jLabel1");
+        jPanel1.add(valor_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
+
         img_format.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Recibo_parq.png"))); // NOI18N
-        jPanel1.add(img_format, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+        jPanel1.add(img_format, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         img_left.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/yellow_bar.png"))); // NOI18N
         jPanel1.add(img_left, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 500));
@@ -321,6 +354,7 @@ public class Recibo extends javax.swing.JFrame {
     private javax.swing.JLabel img_left;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel l_cuad;
     private javax.swing.JLabel l_exit;
     private javax.swing.JLabel l_imp;
@@ -329,5 +363,7 @@ public class Recibo extends javax.swing.JFrame {
     private javax.swing.JPanel p_btnimp;
     private javax.swing.JPanel p_min;
     private javax.swing.JLabel placaLabel;
+    private javax.swing.JLabel valor_tarifa;
+    private javax.swing.JLabel valor_total;
     // End of variables declaration//GEN-END:variables
 }

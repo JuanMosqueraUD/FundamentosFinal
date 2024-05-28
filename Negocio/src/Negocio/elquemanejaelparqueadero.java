@@ -58,7 +58,20 @@ public class elquemanejaelparqueadero {
 
 
     }
-   
+    public String tipoVehiculo(String placa){
+        try{
+        Vehiculo Vehiculo = VehiculoDAO.buscarTipoVehiculo(placa);
+        Vehiculo.setPlaca(placa);
+        String tipo= Vehiculo.getTipo();
+        placa = Vehiculo.getPlaca();
+        return tipo;
+        }catch (PYException ex) {
+            Logger.getLogger(elquemanejaelparqueadero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+                
+        
+    }
    
     
     
@@ -115,6 +128,28 @@ public class elquemanejaelparqueadero {
         }
     
     
+        public int Tarifa(String Placa){
+           Vehiculo Vehiculo = new Vehiculo();
+           Tarifa Tarifa = new Tarifa();
+           try{
+            Vehiculo = VehiculoDAO.buscarTipoVehiculo(Placa);
+            
+           String tipo = Vehiculo.getTipo();
+           Vehiculo.setPlaca(Placa);
+           String placa = Vehiculo.getPlaca();
+           
+           
+           Tarifa = VehiculoDAO.Tarifa(tipo, Placa);
+           int tarifa= Tarifa.getValor();
+           return tarifa;
+           }catch (PYException ex) {
+            Logger.getLogger(elquemanejaelparqueadero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+        }
+        
+        
+        
 }
 
 
