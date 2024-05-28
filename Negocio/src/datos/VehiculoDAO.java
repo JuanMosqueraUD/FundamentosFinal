@@ -3,6 +3,7 @@
 import Negocio.Factura;
 import Negocio.Parqueadero;
 import Negocio.Plaza;
+import Negocio.Registro;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ import java.sql.CallableStatement;
 import java.sql.Timestamp;
 
 import Negocio.Vehiculo;
+import java.text.SimpleDateFormat;
 
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
@@ -54,44 +56,9 @@ public class VehiculoDAO {
       
     }
     
-     public void registrarSalidaVehiculo(String placa, LocalDateTime fechaSalida) {
-        Connection conexion = null;
-        CallableStatement stmt = null;
+     
+    
 
-        try {
-            // Establecer la conexión con la base de datos
-            conexion = ServiceLocator.getInstance().tomarConexion();
-
-            // Llamar a la función almacenada
-            String sql = "{ call registrar_salida_vehiculo(?, ?) }";
-            stmt = conexion.prepareCall(sql);
-            stmt.setString(1, placa);
-            stmt.setTimestamp(2, Timestamp.valueOf(fechaSalida));
-
-            // Ejecutar la llamada
-            stmt.execute();
-
-            System.out.println("Salida registrada para el vehículo con placa: " + placa);
-        } catch (SQLException se) {
-            // Manejo de errores JDBC
-            se.printStackTrace();
-        } catch (Exception e) {
-            // Manejo de errores de Class.forName
-            e.printStackTrace();
-        } finally {
-            // Bloque finally para cerrar recursos
-            try {
-                if (stmt != null) stmt.close();
-            } 
-           catch (SQLException se2) {
-            } // No hace nada
-            try {
-                if (conexion != null) conexion.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        }
-    }
      
     public void insertarFechaHoraEnBD(OffsetDateTime fechaHora, Parqueadero Parqueadero ) throws PYException {
          try{
@@ -168,6 +135,7 @@ public class VehiculoDAO {
   
     public Factura buscarFactura(String placa) throws PYException{
             boolean existe = false;
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             Factura e = new Factura(); //Instancia el objeto para retornar los datos del empleado
             String strSQL = "select f_ingreso, f_salida, k_idregistro from registro\n" +
@@ -181,9 +149,21 @@ public class VehiculoDAO {
             PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
             prepStmt.setString(1, placa);
             ResultSet rs = prepStmt.executeQuery();
+
             while (rs.next()) {
-                e.setFecha_entrada((String) rs.getObject("f_entrada"));
-                e.setFecha_salida((String) rs.getObject("f_salida"));
+                Timestamp tsIngreso = rs.getTimestamp("f_ingreso");
+                Timestamp tsSalida = rs.getTimestamp("f_salida");
+
+                if (tsIngreso != null) {
+                    String fechaIngreso = sdf.format(tsIngreso);
+                    e.setFecha_entrada(fechaIngreso);
+                }
+
+                if (tsSalida != null) {
+                    String fechaSalida = sdf.format(tsSalida);
+                    e.setFecha_salida(fechaSalida);
+                }
+
                 e.setId_pago(rs.getString("k_idregistro"));
                 existe = true;
             }

@@ -6,6 +6,10 @@ package main;
 
 import Negocio.elquemanejaelparqueadero;
 import java.awt.Color;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -23,10 +27,19 @@ public class Recibo extends javax.swing.JFrame {
         initComponents();
         manager = new elquemanejaelparqueadero();
         placaLabel.setText(placa);
-        String salida= manager.getHoraSalida(placa);
-        String entrada = manager.getHoraEntrada(placa);        
-        horaEntrada.setText(entrada);
-        horaSalida.setText(salida);
+        String salidastr= manager.getHoraSalida(placa);
+        String entradastr = manager.getHoraEntrada(placa);
+        String idpago= manager.gerIdpago(placa);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime entrada = LocalDateTime.parse(entradastr, formatter);
+        LocalDateTime salida = LocalDateTime.parse(salidastr, formatter);
+        Duration duracion = Duration.between(entrada, salida);
+        long minutosTotales = duracion.toMinutes();
+        
+        horaEntrada.setText(entradastr);
+        horaSalida.setText(salidastr);
+        id_pago.setText(idpago);
+        minutos_Totales.setText(Long.toString(minutosTotales));
     }
 
     /**
@@ -42,8 +55,10 @@ public class Recibo extends javax.swing.JFrame {
         horaSalida = new javax.swing.JLabel();
         placaLabel = new javax.swing.JLabel();
         horaEntrada = new javax.swing.JLabel();
+        id_pago = new javax.swing.JLabel();
         p_btnimp = new javax.swing.JPanel();
         l_imp = new javax.swing.JLabel();
+        minutos_Totales = new javax.swing.JLabel();
         img_format = new javax.swing.JLabel();
         img_left = new javax.swing.JLabel();
         P_superiorbar = new javax.swing.JPanel();
@@ -68,20 +83,20 @@ public class Recibo extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         horaSalida.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        horaSalida.setForeground(new java.awt.Color(0, 0, 0));
         horaSalida.setText("jLabel1");
         jPanel1.add(horaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 150, -1));
 
         placaLabel.setBackground(new java.awt.Color(0, 0, 0));
         placaLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        placaLabel.setForeground(new java.awt.Color(0, 0, 0));
         placaLabel.setText("jLabel1");
         jPanel1.add(placaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 150, -1));
 
         horaEntrada.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        horaEntrada.setForeground(new java.awt.Color(0, 0, 0));
         horaEntrada.setText("jLabel1");
-        jPanel1.add(horaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 150, -1));
+        jPanel1.add(horaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 150, -1));
+
+        id_pago.setText("jLabel1");
+        jPanel1.add(id_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, -1, -1));
 
         p_btnimp.setBackground(new java.awt.Color(255, 255, 255));
         p_btnimp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -119,8 +134,11 @@ public class Recibo extends javax.swing.JFrame {
 
         jPanel1.add(p_btnimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, 180, 40));
 
+        minutos_Totales.setText("jLabel1");
+        jPanel1.add(minutos_Totales, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, -1));
+
         img_format.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Recibo_parq.png"))); // NOI18N
-        jPanel1.add(img_format, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 30, -1, -1));
+        jPanel1.add(img_format, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
         img_left.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/yellow_bar.png"))); // NOI18N
         jPanel1.add(img_left, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 500));
@@ -298,6 +316,7 @@ public class Recibo extends javax.swing.JFrame {
     private javax.swing.JPanel P_superiorbar;
     private javax.swing.JLabel horaEntrada;
     private javax.swing.JLabel horaSalida;
+    private javax.swing.JLabel id_pago;
     private javax.swing.JLabel img_format;
     private javax.swing.JLabel img_left;
     private javax.swing.JLabel jLabel4;
@@ -306,6 +325,7 @@ public class Recibo extends javax.swing.JFrame {
     private javax.swing.JLabel l_exit;
     private javax.swing.JLabel l_imp;
     private javax.swing.JLabel l_min;
+    private javax.swing.JLabel minutos_Totales;
     private javax.swing.JPanel p_btnimp;
     private javax.swing.JPanel p_min;
     private javax.swing.JLabel placaLabel;

@@ -4,7 +4,10 @@
  */
 package Negocio;
 import datos.VehiculoDAO;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -99,6 +102,17 @@ public class elquemanejaelparqueadero {
         }
         return null;
     }
+        
+        public String gerIdpago(String placa){
+        try{
+           Factura Factura = VehiculoDAO.buscarFactura(placa);
+           String id_pago = Factura.getId_pago();
+           return id_pago;
+        }catch (PYException ex) {
+            Logger.getLogger(elquemanejaelparqueadero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+        }
     
     
 }
